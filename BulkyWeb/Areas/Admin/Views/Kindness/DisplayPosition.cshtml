@@ -1,10 +1,10 @@
-@model KindnessPosition
+﻿@model KindnessPosition
 @using System.Text.Json
 @{
 
     var builder = WebApplication.CreateBuilder();
     ViewBag.PublishDate = builder.Configuration.GetValue<string>("PublishDate");
-    ViewData["Title"] = "??????????????????????-?????????????(?????)";
+    ViewData["Title"] = "懷恩塔位置簡介-塔位查詢系統(懷恩塔定位)";
     string? connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
     // Auto logout settings
@@ -48,10 +48,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- ????CSS???? -->
+    <!-- 引入CSS樣式表 -->
     <link rel="stylesheet" href="~/css/position_Display.css" asp-append-version="true" />
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-    <title>???-??????</title>
+    <title>懷恩塔-塔位查詢</title>
 </head>
 
 <body>
@@ -61,14 +61,14 @@
         </div>
     </header>
     <a asp-action="PositionQuery" class="btn btn-outline-primary bg-gradient mb-5 fw-semibold  text-uppercase">
-        <label style="font-size:30px;color:darkgreen;font-weight:bolder">????</label>
+        <label style="font-size:30px;color:darkgreen;font-weight:bolder">返回</label>
     </a>
-    <h2>???-????</h2>
-    <label>??</label>
+    <h2>懷恩塔-塔位</h2>
+    <label>名稱</label>
     <label id="Kindness_Name" class="displaylabel blink_name">@Model.Name</label>
     <label id="Kindness_PositionId" class="displaylabel blink_name">@Model.PositionId</label>
-   @*  <label id="Kindness_Applicant">???:@Model.Applicant</label> *@
-    <h2>??-??</h2>
+    @*  <label id="Kindness_Applicant">申請人:@Model.Applicant</label> *@
+    <h2>側,區</h2>
     <div>
         <div id="RootDiv_Kindness_Layout" class="position-container-Kindness-Layout"></div>
     </div>
@@ -89,38 +89,38 @@
             <!-- ...other modal content... -->
         </div>
     </div>
-    <div class="col-12 text-center fw-bolder">
-        <h2>?????????</h2>
         <div class="col-12 text-center fw-bolder">
-            <img src="~/images/Kindness/Kindness_tower_outlook.jpg" title="???-??" alt="???-??" style="max-width:100%;height:auto;" />
+        <h2>塔位配置示意</h2>
+        <div class="col-12 text-center fw-bolder">
+            <img src="~/images/Kindness/Kindness_tower_outlook.jpg" title="懷恩塔-外觀" alt="懷恩塔-外觀" style="max-width:100%;height:auto;" />
         </div>
         <div class="col-12 text-center fw-bolder">
-            <img src="~/images/Kindness/Kindness_tower_outlook-1.jpg" title="???-??" alt="???-??" style="max-width:100%;height:auto;" />
+            <img src="~/images/Kindness/Kindness_tower_outlook-1.jpg" title="懷恩塔-外觀(側)" alt="懷恩塔-外觀(側)" style="max-width:100%;height:auto;" />
         </div>
         <div class="col-12 text-center fw-bolder">
-            <img src="~/images/Kindness/Kindness_note.jpg" title="???-??????" alt="???-??????" style="max-width:100%;height:auto;" />
+            <img src="~/images/Kindness/Kindness_note.jpg" title="懷恩塔-塔位說明" alt="懷恩塔-塔位說明" style="max-width:100%;height:auto;" />
         </div>
         <div class="col-12 text-center fw-bolder">
-            <img src="~/images/Kindness/Kindness_layout.jpg" title="???-?????" alt="???-?????" style="max-width:100%;height:auto;" />
+            <img src="~/images/Kindness/Kindness_layout.jpg" title="懷恩塔-塔位配置圖" alt="懷恩塔-塔位配置圖" style="max-width:100%;height:auto;" />
         </div>
-        <h4>???-????</h4>
+        <h4>塔位配置說明</h4>
         <div class="col-12 text-center fw-bolder">
-            <img src="~/images/Kindness/Kindness_position.jpg" title="???-????" alt="???-????" style="max-width:100%;height:auto;" />
+            <img src="~/images/Kindness/Kindness_position.jpg" title="懷恩塔-塔位位置" alt="懷恩塔-塔位位置" style="max-width:100%;height:auto;" />
         </div>
     </div>
 
 
     <div id="autoLogoutWarning">
         <div class="modal-content">
-            <h4 style="color:#c0392b;">????????[????]....</h4>
-            <p style="color:blue;font-size:xx-large;font-weight:bolder">????????????,?? <span style="color:red;font-size:larger" id="logoutCountdown">@ViewBag.WARNING_BEFORE_LOGOUT_SECOND</span> ????????[????](KDP)?</p>
-            <button onclick="stayLoggedIn()" class="btn btn-primary">[????]</button>
+            <h4 style="color:#c0392b;">自動登出警告[系統提示]......</h4>
+            <p style="color:blue;font-size:xx-large;font-weight:bolder">系統即將自動登出您的帳戶,請於 <span style="color:red;font-size:larger" id="logoutCountdown">@ViewBag.WARNING_BEFORE_LOGOUT_SECOND</span> 秒內確認操作[繼續工作](ADP)?</p>
+            <button onclick="stayLoggedIn()" class="btn btn-primary">[繼續工作]</button>
         </div>
     </div>
-    <button id="goTopBtn" class="btn btn-danger">????</button>
+    <button id="goTopBtn" class="btn btn-danger">返回頂部</button>
     <div id="workDurationWarning" style="display:none; position:fixed; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.3); z-index:9999; align-items:center; justify-content:center;">
         <div class="modal-content" style="background:#fff; padding:2rem 2.5rem; border-radius:10px; box-shadow:0 4px 24px rgba(0,0,0,0.18); text-align:center; max-width:90vw;">
-            <p style="color:blue;font-size:xx-large;font-weight:bolder">????????????,?????? <span style="color:red;font-size:larger" id="workLogoutCountdown">@ViewBag.WORK_WARNING_SECONDS</span> ????,?????[??[????]](KDP)?</p>
+            <p style="color:blue;font-size:xx-large;font-weight:bolder">系統工作時間即將超時,請於 <span style="color:red;font-size:larger" id="workLogoutCountdown">@ViewBag.WORK_WARNING_SECONDS</span> 秒內完成您的操作,否則將自動登出[重新登入][繼續工作](ADP)?</p>
         </div>
     </div>
 </body>
@@ -130,640 +130,634 @@
 <script>
 
 
-    //////////////////////////
-    //0.?? ?,??,???.
-    // (??) r? ?? ??
-    /////////////////////////
-    // ????????:?,?,?,?
-    var kf1layout=@Html.Raw(JsonSerializer.Serialize<object>(ViewBag.KindnessLayout_1F));
-        // ????????:?,?,?,?
+          ////////////////////////////
+          // 佈局: 樓層與區塊視圖
+          ///////////////////////////
+
+              // 初始化1F,2F,3F 配置:
+          desc="";
+    // 2F 配置清單: 側,區,層,位置數
     var kf2layout=@Html.Raw(JsonSerializer.Serialize<object>(ViewBag.KindnessLayout_2F));
-        // ????/??????:?,?,?,?,???????,?,?,?,?
+    // 3F 配置清單: 側,區,層,位置數,備註
     var kf3layout=@Html.Raw(JsonSerializer.Serialize<object>(ViewBag.KindnessLayout_3F));
 
 
-    //?.?????????
-    //1F ?? ????
-    // ??
-    // ?????1??????
+    // 位置資料 (範例)
+    // 1F 各區行配置
+    // 行1配置
     var kf1arow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf1arow1));
-    // ?????2??????
+    // 行2配置
     var kf1arow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf1arow2));
-    // ?????3??????
+    // 行3配置
     var kf1arow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf1arow3));
-    // ?????4??????
+    // 行4配置
     var kf1arow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf1arow4));
 
-    // ??
-     // ?????1??????
+    // 中間區段行配置
+     // 行1配置
      var kf1brow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf1brow1));
-     // ?????2??????
+     // 行2配置
      var kf1brow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf1brow2));
-     // ?????3??????
+     // 行3配置
      var kf1brow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf1brow3));
-     // ?????4??????
+     // 行4配置
      var kf1brow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf1brow4));
 
-    // ??
-    // ?????1??????
+    // 左側區段行配置
+    // 行1配置
     var kf1crow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf1crow1));
-    // ?????2??????
+    // 行2配置
     var kf1crow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf1crow2));
-    // ?????3??????
+    // 行3配置
     var kf1crow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf1crow3));
-    // ?????4??????
+    // 行4配置
     var kf1crow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf1crow4));
 
-    // ??
-    // ?????1??????
+    // D 區行配置
+    // 行1配置
     var kf1drow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf1drow1));
-    // ?????2??????
+    // 行2配置
     var kf1drow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf1drow2));
-    // ?????3??????
+    // 行3配置
     var kf1drow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf1drow3));
-    // ?????4??????
+    // 行4配置
     var kf1drow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf1drow4));
 
-    // ??
-    // ?????1??????
+    // E 區行配置
+    // 行1配置
     var kf1erow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf1erow1));
-    // ?????2??????
+    // 行2配置
     var kf1erow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf1erow2));
-    // ?????3??????
+    // 行3配置
     var kf1erow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf1erow3));
-    // ?????4??????
+    // 行4配置
     var kf1erow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf1erow4));
 
-    // ??
-    // ?????1??????
+    // F 區行配置
+    // 行1配置
     var kf1frow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf1frow1));
-    // ?????2??????
+    // 行2配置
     var kf1frow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf1frow2));
-    // ?????3??????
+    // 行3配置
     var kf1frow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf1frow3));
-    // ?????4??????
+    // 行4配置
     var kf1frow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf1frow4));
 
-    // 2F ?? ????
-    //??
-    // ?????1??????
+    // 2F 位置配置
+    // A 區行1-4
+    // 行1配置
     var kf2arow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf2arow1));
-    // ?????2??????
+    // 行2配置
     var kf2arow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf2arow2));
-    // ?????3??????
+    // 行3配置
     var kf2arow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf2arow3));
-    // ?????4??????
+    // 行4配置
     var kf2arow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf2arow4));
 
-    // ??
-    // ?????1??????
+    // B 區行配置
+    // 行1配置
     var kf2brow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf2brow1));
-    // ?????2??????
+    // 行2配置
     var kf2brow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf2brow2));
-    // ?????3??????
+    // 行3配置
     var kf2brow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf2brow3));
-    // ?????4??????
+    // 行4配置
     var kf2brow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf2brow4));
 
-    // ??
-    // ?????1??????
+    // C 區行配置
+    // 行1配置
     var kf2crow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf2crow1));
-    // ?????2??????
+    // 行2配置
     var kf2crow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf2crow2));
-    // ?????3??????
+    // 行3配置
     var kf2crow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf2crow3));
-    // ?????4??????
+    // 行4配置
     var kf2crow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf2crow4));
 
-    // ??
-    // ?????1??????
+    // D 區行配置
+    // 行1配置
     var kf2drow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf2drow1));
-    // ?????2??????
+    // 行2配置
     var kf2drow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf2drow2));
-    // ?????3??????
+    // 行3配置
     var kf2drow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf2drow3));
-    // ?????4??????
+    // 行4配置
     var kf2drow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf2drow4));
 
-    // ??
-    // ?????1??????
+    // E 區行配置
+    // 行1配置
     var kf2erow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf2erow1));
-    // ?????2??????
+    // 行2配置
     var kf2erow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf2erow2));
-    // ?????3??????
+    // 行3配置
     var kf2erow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf2erow3));
-    // ?????4??????
+    // 行4配置
     var kf2erow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf2erow4));
 
-    // ??
-    // ?????1??????
+    // F 區行配置
+    // 行1配置
     var kf2frow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf2frow1));
-    // ?????2??????
+    // 行2配置
     var kf2frow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf2frow2));
-    // ?????3??????
+    // 2F F區 第3列配置
     var kf2frow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf2frow3));
-    // ?????4??????
+    // 2F F區 第4列配置
     var kf2frow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf2frow4));
 
-    // 3F ?? ????
-    // ??
-    // ?????1??????
+    // 3F 樓層 各區配置
+    // A區
+    // 3F A區 第1列配置
     var kf3arow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3arow1));
-    // ?????2??????
+    // 3F A區 第2列配置
     var kf3arow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3arow2));
-    // ?????3??????
+    // 3F A區 第3列配置
     var kf3arow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3arow3));
-    // ?????4??????
+    // 3F A區 第4列配置
     var kf3arow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3arow4));
-    // ?????5??????
+    // 3F A區 第5列配置
     var kf3arow5 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3arow5));
-    // ?????6??????
+    // 3F A區 第6列配置
     var kf3arow6 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3arow6));
-    // ?????7??????
+    // 3F A區 第7列配置
     var kf3arow7 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3arow7));
 
-    // ??
-    // ?????1??????
+    // B區
+    // 3F B區 第1列配置
     var kf3brow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3brow1));
-    // ?????2??????
+    // 3F B區 第2列配置
     var kf3brow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3brow2));
-    // ?????3??????
+    // 3F B區 第3列配置
     var kf3brow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3brow3));
-    // ?????4??????
+    // 3F B區 第4列配置
     var kf3brow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3brow4));
-    // ?????5??????
+    // 3F B區 第5列配置
     var kf3brow5 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3brow5));
-    // ?????6??????
+    // 3F B區 第6列配置
     var kf3brow6 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3brow6));
-    // ?????7??????
+    // 3F B區 第7列配置
     var kf3brow7 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3brow7));
 
-    // ??
-    // ?????1??????
+    // C區
+    // 3F C區 第1列配置
     var kf3crow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3crow1));
-    // ?????2??????
+    // 3F C區 第2列配置
     var kf3crow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3crow2));
-    // ?????3??????
+    // 3F C區 第3列配置
     var kf3crow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3crow3));
-    // ?????4??????
+    // 3F C區 第4列配置
     var kf3crow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3crow4));
-    // ?????5??????
+    // 3F C區 第5列配置
     var kf3crow5 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3crow5));
-    // ?????6??????
+    // 3F C區 第6列配置
     var kf3crow6 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3crow6));
-    // ?????7??????
+    // 3F C區 第7列配置
     var kf3crow7 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3crow7));
 
-    // ??
-    // ?????1??????
+    // D區
+    // 3F D區 第1列配置
     var kf3drow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3drow1));
-    // ?????2??????
+    // 3F D區 第2列配置
     var kf3drow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3drow2));
-    // ?????3??????
+    // 3F D區 第3列配置
     var kf3drow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3drow3));
-    // ?????4??????
+    // 3F D區 第4列配置
     var kf3drow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3drow4));
-    // ?????5??????
+    // 3F D區 第5列配置
     var kf3drow5 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3drow5));
-    // ?????6??????
+    // 3F D區 第6列配置
     var kf3drow6 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3drow6));
-    // ?????7??????
+    // 3F D區 第7列配置
     var kf3drow7 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3drow7));
 
-    // ??
-    // ?????1??????
+    // E區
+    // 3F E區 第1列配置
     var kf3erow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3erow1));
-    // ?????2??????
+    // 3F E區 第2列配置
     var kf3erow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3erow2));
-    // ?????3??????
+    // 3F E區 第3列配置
     var kf3erow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3erow3));
-    // ?????4??????
+    // 3F E區 第4列配置
     var kf3erow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3erow4));
-    // ?????5??????
+    // 3F E區 第5列配置
     var kf3erow5 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3erow5));
-    // ?????6??????
+    // 3F E區 第6列配置
     var kf3erow6 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3erow6));
-    // ?????7??????
+    // 3F E區 第7列配置
     var kf3erow7 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3erow7));
 
-    // ??
-    // ?????1??????
+    // F區
+    // 3F F區 第1列配置
     var kf3frow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3frow1));
-    // ?????2??????
+    // 3F F區 第2列配置
     var kf3frow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3frow2));
-    // ?????3??????
+    // 3F F區 第3列配置
     var kf3frow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3frow3));
-    // ?????4??????
+    // 3F F區 第4列配置
     var kf3frow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3frow4));
-    // ?????5??????
+    // 3F F區 第5列配置
     var kf3frow5 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3frow5));
-    // ?????6??????
+    // 3F F區 第6列配置
     var kf3frow6 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3frow6));
-    // ?????7??????
+    // 3F F區 第7列配置
     var kf3frow7 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.kf3frow7));
 
     //////////////////////////////
-    // ?.???????????
+    // 1. 位置陣列初始化配置
     /////////////////////////////
 
-    //??
+    // 1F A區
     var positionary_kf1a = Array.from({ length: @(ViewBag.kf1ar ?? 0) }, () => Array(@(ViewBag.kf1ac ?? 0)).fill(0));
-    // ?????1??????
+    // 1F A區 第1列配置
     positionary_kf1a[0] = kf1arow1.split(",");
-    // ?????2??????
+    // 1F A區 第2列配置
     positionary_kf1a[1] = kf1arow2.split(",");
-    // ?????3??????
+    // 1F A區 第3列配置
     positionary_kf1a[2] = kf1arow3.split(",");
-    // ?????4??????
+    // 1F A區 第4列配置
     positionary_kf1a[3] = kf1arow4.split(",");
-      //??
+      // 1F B區
       var positionary_kf1b = Array.from({ length: @ViewBag.kf1br }, () => Array(@ViewBag.kf1bc).fill(0));
-    // ?????1??????
+    // 1F B區 第1列配置
     positionary_kf1b[0] = kf1brow1.split(",");
-    // ?????2??????
+    // 1F B區 第2列配置
     positionary_kf1b[1] = kf1brow2.split(",");
-    // ?????3??????
+    // 1F B區 第3列配置
     positionary_kf1b[2] = kf1brow3.split(",");
-    // ?????4??????
+    // 1F B區 第4列配置
     positionary_kf1b[3] = kf1brow4.split(",");
-      //??
+      // 1F C區
       var positionary_kf1c = Array.from({ length: @ViewBag.kf1cr }, () => Array(@ViewBag.kf1cc).fill(0));
-    // ?????1??????
+    // 1F C區 第1列配置
     positionary_kf1c[0] = kf1crow1.split(",");
-    // ?????2??????
+    // 1F C區 第2列配置
     positionary_kf1c[1] = kf1crow2.split(",");
-    // ?????3??????
+    // 1F C區 第3列配置
     positionary_kf1c[2] = kf1crow3.split(",");
-    // ?????4??????
+    // 1F C區 第4列配置
     positionary_kf1c[3] = kf1crow4.split(",");
-      //??
+      // 1F D區
       var positionary_kf1d = Array.from({ length: @ViewBag.kf1dr }, () => Array(@ViewBag.kf1dc).fill(0));
-    // ?????1??????
+    // 1F D區 第1列配置
     positionary_kf1d[0] = kf1drow1.split(",");
-    // ?????2??????
+    // 1F D區 第2列配置
     positionary_kf1d[1] = kf1drow2.split(",");
-    // ?????3??????
+    // 1F D區 第3列配置
     positionary_kf1d[2] = kf1drow3.split(",");
-    // ?????4??????
+    // 1F D區 第4列配置
     positionary_kf1d[3] = kf1drow4.split(",");
-      //??
+      // 1F E區
       var positionary_kf1e = Array.from({ length: @ViewBag.kf1er }, () => Array(@ViewBag.kf1ec).fill(0));
-    // ?????1??????
+    // 1F E區 第1列配置
     positionary_kf1e[0] = kf1erow1.split(",");
-    // ?????2??????
+    // 1F E區 第2列配置
     positionary_kf1e[1] = kf1erow2.split(",");
-    // ?????3??????
+    // 1F E區 第3列配置
     positionary_kf1e[2] = kf1erow3.split(",");
-    // ?????4??????
+    // 1F E區 第4列配置
     positionary_kf1e[3] = kf1erow4.split(",");
-       //??
+       // 1F F區
       var positionary_kf1f = Array.from({ length: @ViewBag.kf1fr }, () => Array(@ViewBag.kf1fc).fill(0));
-    // ?????1??????
+    // 1F F區 第1列配置
     positionary_kf1f[0] = kf1frow1.split(",");
-    // ?????2??????
+    // 1F F區 第2列配置
     positionary_kf1f[1] = kf1frow2.split(",");
-    // ?????3??????
+    // 1F F區 第3列配置
     positionary_kf1f[2] = kf1frow3.split(",");
-    // ?????4??????
+    // 1F F區 第4列配置
     positionary_kf1f[3] = kf1frow4.split(",");
 
 
-       //2F ?? ????
-      //??
+       // 2F 樓層 各區配置
+      // 2F A區
       var positionary_kf2a = Array.from({ length: @ViewBag.kf2ar }, () => Array(@ViewBag.kf2ac).fill(0));
-      // ?????1??????
+      // 2F A區 第1列配置
       positionary_kf2a[0] = kf2arow1.split(",");
-      // ?????2??????
+      // 2F A區 第2列配置
       positionary_kf2a[1] = kf2arow2.split(",");
-      // ?????3??????
+      // 2F A區 第3列配置
       positionary_kf2a[2] = kf2arow3.split(",");
-      // ?????4??????
+      // 2F A區 第4列配置
       positionary_kf2a[3] = kf2arow4.split(",");
-      //??
+      // 2F B區
       var positionary_kf2b = Array.from({ length: @ViewBag.kf2br }, () => Array(@ViewBag.kf2bc).fill(0));
-        // ?????1??????
+        // 2F B區 第1列配置
         positionary_kf2b[0] = kf2brow1.split(",");
-        // ?????2??????
+        // 2F B區 第2列配置
         positionary_kf2b[1] = kf2brow2.split(",");
-        // ?????3??????
+        // 2F B區 第3列配置
         positionary_kf2b[2] = kf2brow3.split(",");
-        // ?????4??????
+        // 2F B區 第4列配置
         positionary_kf2b[3] = kf2brow4.split(",");
-      //??
+      // 2F C區
       var positionary_kf2c = Array.from({ length: @ViewBag.kf2cr }, () => Array(@ViewBag.kf2cc).fill(0));
-        // ?????1??????
+        // 2F C區 第1列配置
         positionary_kf2c[0] = kf2crow1.split(",");
-        // ?????2??????
+        // 2F C區 第2列配置
         positionary_kf2c[1] = kf2crow2.split(",");
-        // ?????3??????
+        // 2F C區 第3列配置
         positionary_kf2c[2] = kf2crow3.split(",");
-        // ?????4??????
+        // 2F C區 第4列配置
         positionary_kf2c[3] = kf2crow4.split(",");
-      //??
+      // 2F D區
       var positionary_kf2d = Array.from({ length: @ViewBag.kf2dr }, () => Array(@ViewBag.kf2dc).fill(0));
-        // ?????1??????
+        // 2F D區 第1列配置
         positionary_kf2d[0] = kf2drow1.split(",");
-        // ?????2??????
+        // 2F D區 第2列配置
         positionary_kf2d[1] = kf2drow2.split(",");
-        // ?????3??????
+        // 2F D區 第3列配置
         positionary_kf2d[2] = kf2drow3.split(",");
-        // ?????4??????
+        // 2F D區 第4列配置
         positionary_kf2d[3] = kf2drow4.split(",");
-      //??
+      // 2F E區
       var positionary_kf2e = Array.from({ length: @ViewBag.kf2er }, () => Array(@ViewBag.kf2ec).fill(0));
-        // ?????1??????
+        // 2F E區 第1列配置
         positionary_kf2e[0] = kf2erow1.split(",");
-        // ?????2??????
+        // 2F E區 第2列配置
         positionary_kf2e[1] = kf2erow2.split(",");
-        // ?????3??????
+        // 2F E區 第3列配置
         positionary_kf2e[2] = kf2erow3.split(",");
-        // ?????4??????
+        // 2F E區 第4列配置
         positionary_kf2e[3] = kf2erow4.split(",");
-      //??
+      // 2F F區
       var positionary_kf2f = Array.from({ length: @ViewBag.kf2fr }, () => Array(@ViewBag.kf2fc).fill(0));
-        // ?????1??????
+        // 2F F區 第1列配置
         positionary_kf2f[0] = kf2frow1.split(",");
-        // ?????2??????
+        // 2F F區 第2列配置
         positionary_kf2f[1] = kf2frow2.split(",");
-        // ?????3??????
+        // 2F F區 第3列配置
         positionary_kf2f[2] = kf2frow3.split(",");
-        // ?????4??????
+        // 2F F區 第4列配置
         positionary_kf2f[3] = kf2frow4.split(",");
 
-       //3F  ?? ????
-      //??
+       // 3F 樓層 各區配置
+      // 3F A區
       var positionary_kf3a = Array.from({ length: @ViewBag.kf3ar }, () => Array(@ViewBag.kf3ac).fill(0));
-        // ?????1??????
+        // 3F A區 第1列配置
         positionary_kf3a[0] = kf3arow1.split(",");
-        // ?????2??????
+        // 3F A區 第2列配置
         positionary_kf3a[1] = kf3arow2.split(",");
-        // ?????3??????
+        // 3F A區 第3列配置
         positionary_kf3a[2] = kf3arow3.split(",");
-        // ?????4??????
+        // 3F A區 第4列配置
         positionary_kf3a[3] = kf3arow4.split(",");
-        // ?????5??????
+        // 3F A區 第5列配置
         positionary_kf3a[4] = kf3arow5.split(",");
-        // ?????6??????
+        // 3F A區 第6列配置
         positionary_kf3a[5] = kf3arow6.split(",");
-        // ?????7??????
+        // 3F A區 第7列配置
         positionary_kf3a[6] = kf3arow7.split(",");
-      //??
+      // 3F B區
       var positionary_kf3b = Array.from({ length: @ViewBag.kf3br }, () => Array(@ViewBag.kf3bc).fill(0));
-        // ?????1??????
+        // 3F B區 第1列配置
         positionary_kf3b[0] = kf3brow1.split(",");
-        // ?????2??????
+        // 3F B區 第2列配置
         positionary_kf3b[1] = kf3brow2.split(",");
-        // ?????3??????
+        // 3F B區 第3列配置
         positionary_kf3b[2] = kf3brow3.split(",");
-        // ?????4??????
+        // 3F B區 第4列配置
         positionary_kf3b[3] = kf3brow4.split(",");
-        // ?????5??????
+        // 3F B區 第5列配置
         positionary_kf3b[4] = kf3brow5.split(",");
-        // ?????6??????
+        // 3F B區 第6列配置
         positionary_kf3b[5] = kf3brow6.split(",");
-        // ?????7??????
+        // 3F B區 第7列配置
         positionary_kf3b[6] = kf3brow7.split(",");
-      //??
+      // 3F C區
       var positionary_kf3c = Array.from({ length: @ViewBag.kf3cr }, () => Array(@ViewBag.kf3cc).fill(0));
-        // ?????1??????
+        // 3F C區 第1列配置
         positionary_kf3c[0] = kf3crow1.split(",");
-        // ?????2??????
+        // 3F C區 第2列配置
         positionary_kf3c[1] = kf3crow2.split(",");
-        // ?????3??????
+        // 3F C區 第3列配置
         positionary_kf3c[2] = kf3crow3.split(",");
-        // ?????4??????
+        // 3F C區 第4列配置
         positionary_kf3c[3] = kf3crow4.split(",");
-        // ?????5??????
+        // 3F C區 第5列配置
         positionary_kf3c[4] = kf3crow5.split(",");
-        // ?????6??????
+        // 3F C區 第6列配置
         positionary_kf3c[5] = kf3crow6.split(",");
-        // ?????7??????
+        // 3F C區 第7列配置
         positionary_kf3c[6] = kf3crow7.split(",");
-      //??
+      // 3F D區
       var positionary_kf3d = Array.from({ length: @ViewBag.kf3dr }, () => Array(@ViewBag.kf3dc).fill(0));
-        // ?????1??????
+        // 3F D區 第1列配置
         positionary_kf3d[0] = kf3drow1.split(",");
-        // ?????2??????
+        // 3F D區 第2列配置
         positionary_kf3d[1] = kf3drow2.split(",");
-        // ?????3??????
+        // 3F D區 第3列配置
         positionary_kf3d[2] = kf3drow3.split(",");
-        // ?????4??????
+        // 3F D區 第4列配置
         positionary_kf3d[3] = kf3drow4.split(",");
-        // ?????5??????
+        // 3F D區 第5列配置
         positionary_kf3d[4] = kf3drow5.split(",");
-        // ?????6??????
+        // 3F D區 第6列配置
         positionary_kf3d[5] = kf3drow6.split(",");
-        // ?????7??????
+        // 3F D區 第7列配置
         positionary_kf3d[6] = kf3drow7.split(",");
-      //??
+      // 3F E區
       var positionary_kf3e = Array.from({ length: @ViewBag.kf3er }, () => Array(@ViewBag.kf3ec).fill(0));
-        // ?????1??????
+        // 3F E區 第1列配置
         positionary_kf3e[0] = kf3erow1.split(",");
-        // ?????2??????
+        // 3F E區 第2列配置
         positionary_kf3e[1] = kf3erow2.split(",");
-        // ?????3??????
+        // 3F E區 第3列配置
         positionary_kf3e[2] = kf3erow3.split(",");
-        // ?????4??????
+        // 3F E區 第4列配置
         positionary_kf3e[3] = kf3erow4.split(",");
-        // ?????5??????
+        // 3F E區 第5列配置
         positionary_kf3e[4] = kf3erow5.split(",");
-        // ?????6??????
+        // 3F E區 第6列配置
         positionary_kf3e[5] = kf3erow6.split(",");
-        // ?????7??????
+        // 3F E區 第7列配置
         positionary_kf3e[6] = kf3erow7.split(",");
-      //??
+      // 3F F區
       var positionary_kf3f = Array.from({ length: @ViewBag.kf3fr }, () => Array(@ViewBag.kf3fc).fill(0));
-        // ?????1??????
+        // 3F F區 第1列配置
         positionary_kf3f[0] = kf3frow1.split(",");
-        // ?????2??????
+        // 3F F區 第2列配置
         positionary_kf3f[1] = kf3frow2.split(",");
-        // ?????3??????
+        // 3F F區 第3列配置
         positionary_kf3f[2] = kf3frow3.split(",");
-        // ?????4??????
+        // 3F F區 第4列配置
         positionary_kf3f[3] = kf3frow4.split(",");
-        // ?????5??????
+        // 3F F區 第5列配置
         positionary_kf3f[4] = kf3frow5.split(",");
-        // ?????6??????
+        // 3F F區 第6列配置
         positionary_kf3f[5] = kf3frow6.split(",");
-        // ?????7??????
+        // 3F F區 第7列配置
         positionary_kf3f[6] = kf3frow7.split(",");
 
 
 
-         // ??1F,2F,3F ????? 2025 07 12 13:14
+         // 初始化1F,2F,3F 樓層配置 2025 07 12 13:14
         var klayout_ary = Array.from({ length: @(ViewBag.KindnessFloor ?? 0) }, () => Array(@(ViewBag.KindnessSection ?? 0)).fill(0));
-        // ??1???? 2025 07 13 23:39
+        // 設定1樓配置 2025 07 13 23:39
         klayout_ary[0] = kf1layout.split(",");
-        // ??1???? 2025 07 13 23:39
+        // 設定2樓配置 2025 07 13 23:39
         klayout_ary[1] = kf2layout.split(",");
-        // ??3???? 2025 07 13 23:39
+        // 設定3樓配置 2025 07 13 23:39
         klayout_ary[2] = kf3layout.split(",");
 
 
-        ////////////////////////////
-        //?.?????
-        ///////////////////////////
+          ////////////////////////////
+          // 佈局渲染區塊說明
+          ////////////////////////////
 
-           // ??1F,2F,3F ??:
+              // 初始化 1F,2F,3F 樓層配置:
         desc="";
         renderLayoutFloorSection("RootDiv_Kindness_Layout", klayout_ary,desc,'level','sectionKindness');
 
-         //3?
-        // ??3?????:
-        var desc="3?-??-";
+         //3F:  3樓配置
+        // 3樓A區:
+        var desc="3樓-A區-";
         renderPositionRows(positionary_kf3a,desc,'level3f','position');
-        // ??3?????:
-         desc="3?-??-";
+        // 3樓B區:
+         desc="3樓-B區-";
         renderPositionRows(positionary_kf3b,desc,'level3f','position');
-        // ??3?????:
-         desc="3?-??-";
+        // 3樓C區:
+         desc="3樓-C區-";
         renderPositionRows(positionary_kf3c,desc,'level3f','position');
-        // ??3?????:
-         desc="3?-??-";
+        // 3樓D區:
+         desc="3樓-D區-";
         renderPositionRows(positionary_kf3d,desc,'level3f','position');
-        // ??3?????:
-         desc="3?-??-";
+        // 3樓E區:
+         desc="3樓-E區-";
         renderPositionRows(positionary_kf3e,desc,'level3f','position');
-        // ??3?????:
-         desc="3?-??-";
+        // 3樓F區:
+         desc="3樓-F區-";
         renderPositionRows(positionary_kf3f,desc,'level3f','position');
 
 
-         //2?:
-        // ??2?????:
-         desc="2?-??-";
+         //2F:
+        // 2樓A區:
+         desc="2樓-A區-";
         renderPositionRows(positionary_kf2a,desc,'level2f','position');
-        // ??2?????:
-         desc="2?-??-";
+        // 2樓B區:
+         desc="2樓-B區-";
         renderPositionRows(positionary_kf2b,desc,'level2f','position');
-        // ??2?????:
-         desc="2?-??-";
+        // 2樓C區:
+         desc="2樓-C區-";
         renderPositionRows(positionary_kf2c,desc,'level2f','position');
-        // ??2?????:
-         desc="2?-??-";
+        // 2樓D區:
+         desc="2樓-D區-";
         renderPositionRows(positionary_kf2d,desc,'level2f','position');
-        // ??2?????:
-         desc="2?-??-";
+        // 2樓E區:
+         desc="2樓-E區-";
         renderPositionRows(positionary_kf2e,desc,'level2f','position');
-        // ??2?????:
-         desc="2?-??-";
+        // 2樓F區:
+         desc="2樓-F區-";
         renderPositionRows(positionary_kf2f,desc,'level2f','position');
 
-        //1?:
-        // ??1?????:
-        desc="1?-??-";
+        //1F:
+        // 1樓A區:
+        desc="1樓-A區-";
         renderPositionRows(positionary_kf1a,desc,'level1f','position');
-        // ??1?????:
-        desc="1?-??-";
+        // 1樓B區:
+        desc="1樓-B區-";
         renderPositionRows(positionary_kf1b,desc,'level1f','position');
-        // ??1?????:
-        desc="1?-??-";
+        // 1樓C區:
+        desc="1樓-C區-";
         renderPositionRows(positionary_kf1c,desc,'level1f','position');
-        // ??1?????:
-        desc="1?-??-";
+        // 1樓D區:
+        desc="1樓-D區-";
         renderPositionRows(positionary_kf1d,desc,'level1f','position');
-        // ??1?????:
-        desc="1?-??-";
+        // 1樓E區:
+        desc="1樓-E區-";
         renderPositionRows(positionary_kf1e,desc,'level1f','position');
-        // ??1?????:
-        desc="1?-??-";
+        // 1樓F區:
+        desc="1樓-F區-";
         renderPositionRows(positionary_kf1f,desc,'level1f','position');
 
 
 
-            // ??:???????????????(????,????)
-        // ??:positionary_asideary ??,????
+            // 說明:渲染樓層區域配置(側,區,層,位置數)
+        // 參數:positionary_kfloorary 樓層,區配置
          function renderLayoutFloorSection(root_div,positionary_kfloorary,desc,levelClassName,positionClassName)
         {
                // alert('desc : '+desc);
                // alert('root_div : '+root_div);
                // alert('positionary_kfloorary : '+positionary_kfloorary);
                // alert('levelClassName : '+levelClassName);
-              for (let i = positionary_kfloorary.length -1 ; i >= 0 ; i--) {
+                            for (let i = positionary_kfloorary.length -1 ; i >= 0 ; i--) {
 
-                // ?????????
-                let section = positionary_kfloorary[i];
-                // ????div????????
-                let floorDiv = document.createElement('div');
-                // ??class?row
-                floorDiv.className = 'row';
-                for (let j = 0; j < section.length; j++) {
-                    // ????????
-                    let sec=section[j]; //???
-                    // ????span????????
-                    let secSpan = document.createElement('span');
-                    secSpan.readOnly = true //????
-                    secSpan.className = positionClassName; // ??class????position
-                    secSpan.innerText = sec; // ???????????
-                    // ???span?????rowDiv?
-                    floorDiv.appendChild(secSpan);
-                }
-                // ????span??????????? desc
+                                // 取得該層的區段資料
+                                let section = positionary_kfloorary[i];
+                                // 建立樓層行容器
+                                let floorDiv = document.createElement('div');
+                                // 設定容器 class 為 row
+                                floorDiv.className = 'row';
+                                for (let j = 0; j < section.length; j++) {
+                                        // 逐一處理該區段項目
+                                        let sec=section[j]; // 區段文字
+                                        // 建立顯示區段的 span 元素
+                                        let secSpan = document.createElement('span');
+                                        secSpan.readOnly = true // 只讀
+                                        secSpan.className = positionClassName; // 設定 span 的 class (位置樣式)
+                                        secSpan.innerText = sec; // 顯示區段文字
+                                        // 將 span 加入 rowDiv
+                                        floorDiv.appendChild(secSpan);
+                                }
+                // 建立層級描述的 span 並顯示層級文字
                     let descSpan = document.createElement('span');
-                    descSpan.readOnly = true //????
-                    descSpan.className = levelClassName+(i+1)+"f"; // ??class?classname
-                    descSpan.innerText = desc +(i+1)+"???"; // ???????????
-                     // Add the span to the row div
-                    // ???span?????rowDiv?
+                    descSpan.readOnly = true // 設為唯讀
+                    descSpan.className = levelClassName+(i+1)+"f"; // 設定層級 class 名稱
+                    descSpan.innerText = desc +(i+1)+"層"; // 層級標示
+                     // 將描述 span 加入 row 容器
                     floorDiv.appendChild(descSpan);
                 // Add the row div to the container
-                // ?????div???RootDiv_Kindness?
+                    // 將 floorDiv 加入 `RootDiv_Kindness` 容器
                 document.getElementById(root_div).appendChild(floorDiv);
             }
 
-         }
+            }
 
-            // ??:???????????????(????????)
-            // ??:positionary_kfloorary ???????
-         function renderPositionRows(positionary_kfloorary,desc,levelClassName,postionClassName) {
+                // 說明: 渲染每一列的位置 (樓層, 區, 層, 位置)
+                // 參數: positionary_kfloorary - 傳入的樓層/區位置陣列
+            function renderPositionRows(positionary_kfloorary,desc,levelClassName,postionClassName) {
             //Get each Row ID
             let rowId = "";
             for (let i = positionary_kfloorary.length -1 ; i >= 0 ; i--) {
-                //Get each Row ID
+                // 取得列編號並選取該列的位置陣列
                 rowId = (i+1)
-                // Get each row of position IDs
-                // ??????????
+                // 取得該列的位置陣列
                 let row = positionary_kfloorary[i];
-                // Create a div for the row
-                // ????div????????
+                // 建立該列的容器 div
                 let rowDiv = document.createElement('div');
-                // ??class?row
+                // 設定容器 class 為 row
                 rowDiv.className = 'row';
                 for (let j = 0; j < row.length; j++) {
                     // Get each position ID
-                    // ?????????
-                    let position=row[j]; //????
-                    let positionId = desc+rowId+"?:" + position;  //eg:1?-??-7:34  format:?-?-?:?
-                    //let positionId = position;  //eg:1?-??-7:34  format:?-?-?:?
+                    // 取得單一位置代碼
+                    let position=row[j]; // 單一位置代碼
+                    let positionId = desc+rowId+"層:" + position;  // eg:1樓-A區-7層:34  format:樓-區-層:位置
+                    //let positionId = position;  //eg:1樓-A區-7層:34  format:樓-區-層:位置
                     // Create a span for the position
-                    // ????span?????????
+                    // 建立位置顯示用的 span
                     let positionSpan = document.createElement('span');
-                    positionSpan.readOnly = true //????
+                    positionSpan.readOnly = true // 設為唯讀
                     if (position==="000")
                     {
-                           positionSpan.className = 'position_window_door'; // ???-???,???
-                           positionSpan.innerText = '???-???';   // ??:??'???-???,???'
+                           positionSpan.className = 'position_window_door'; // 樣式: 窗/門/空位
+                           positionSpan.innerText = '空位';   // 空位標示
                     }
                     else
                     {
-                           positionSpan.className = postionClassName; // ??class????position
-                           positionSpan.innerText = positionId; // ???????????
+                           positionSpan.className = postionClassName; // 設定位置 span 的 class
+                           positionSpan.innerText = positionId; // 設定顯示文字 (樓-區-層:位置)
                     }
 
-                    // Add the span to the row div
-                    // ???span?????rowDiv?
+                    // 將位置 span 加入列容器
                     rowDiv.appendChild(positionSpan);
                 }
-                // ????span??????????? desc
+                
+                    // 建立並加入層級標示 span
                     let positionSpan = document.createElement('span');
-                    positionSpan.readOnly = true //????
-                    positionSpan.className = levelClassName; // ??class?classname
-                    positionSpan.innerText = desc +(i+1)+"?"; // ???????????
-                     // Add the span to the row div
-                    // ???span?????rowDiv?
+                    positionSpan.readOnly = true // 設為唯讀
+                    positionSpan.className = levelClassName; // 設定層級 class
+                    positionSpan.innerText = desc +(i+1)+"層"; // 層級標示
                     rowDiv.appendChild(positionSpan);
                 // Add the row div to the container
-                // ?????div???RootDiv_Kindness?
+                    // 將 rowDiv 加入對應的容器 (RootDiv_Kindness)
                 document.getElementById('RootDiv_Kindness').appendChild(rowDiv);
             }
         }
@@ -772,7 +766,7 @@
         function populateSectionUI() {
 
             const positions = document.querySelectorAll('.sectionKindness');
-            var PositionId = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.PositionId)); //???????
+            var PositionId = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.PositionId)); // 從 ViewBag 取得 PositionId
             //alert('PositionId: '+PositionId);
                 if(PositionId.length > 0) {
                     positions.forEach(position => {
@@ -781,7 +775,7 @@
                         //alert('bool_result: ' +bool_result);
                         if (bool_result) {
                             //alert('bool_result: ' +bool_result);
-                            position.classList.add('Kindnesssectioncurrent');//?????? 'Kindnesssectioncurrent'
+                            position.classList.add('Kindnesssectioncurrent'); // 標示為目前區段 'Kindnesssectioncurrent'
                             position.classList.add('blink'); // ?? 2025 07 30 23:42
                             }
                     });
@@ -794,36 +788,32 @@
             const positions = document.querySelectorAll('.position');
             //alert('positions.length: '+positions.length);
 
-                //???????????? ViewBag.ListPositionId
+                // 從 ViewBag 取得已佔用位置清單
             var listPositionId = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.ListPositionId));
             //alert('listPositionId.length: '+listPositionId.length);
                 if(listPositionId.length > 0) {
                     //alert('kind==1');
                     //alert('ListPositionId: ' + JSON.stringify(listPositionId));
                     positions.forEach(position => {
-                        listPositionId.forEach(positionid => {  //???? //positionid  eg: '1?-??-7?-234,??1'
+                        listPositionId.forEach(positionid => {  // 逐一處理回傳的已佔用位置資料
                         var  Local_positionid=position.innerText;
-                        //alert('Local_positionid: ' +Local_positionid);//???? eg: '1?-??-7?:234,???'
-                        var  positionId_compared=positionid.substr(0,positionid.indexOf(","));  // ????[?]???:??
-                        //alert('positionId_compared: ' +positionId_compared);
-                        var  name=positionid.substr(positionid.indexOf(",")+1);  // ????[?]???:????
-                        //alert('name: ' +name);
-                        var  bool_result=positionId_compared===Local_positionid;//?? ===??
-                        //alert('bool_result: ' +bool_result);
-                          //???????
+                        // 本地位置ID 例如: '1樓-A區-7層:234'
+                        var  positionId_compared=positionid.substr(0,positionid.indexOf(","));  // 提取比較用的位置ID
+                        var  name=positionid.substr(positionid.indexOf(",")+1);  // 提取逗號後的墓碑名稱
+                        var  bool_result=positionId_compared===Local_positionid; // 比對是否相符
+                          // 目前使用者選取的 PositionId
                         var currentPositonId=  @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.PositionId));
                         if (bool_result) {
-                            position.classList.add('occupied');//?????? 'occupied'
+                            position.classList.add('occupied'); // 標示為已佔用
                             position.innerText += ('-'+ name);
-                             if (currentPositonId === Local_positionid) //???????
+                             if (currentPositonId === Local_positionid) // 若為目前選中的位置
                               {
-                                 position.classList.add('current');//??????????
-                                 position.classList.add('blink');// ?? '???????' 2025 07 31 23:57
-                                 var  floorSectionLevel=positionid.substr(0,positionid.indexOf(":"));  // ??[:][?]???:??-??-??
-                                 //alert('floorSectionLevel'+floorSectionLevel);
+                                 position.classList.add('current'); // 標示為目前位置
+                                 position.classList.add('blink'); // 設為閃爍顯示
+                        var  floorSectionLevel=positionid.substr(0,positionid.indexOf(":")); // 取出樓-區-層 部分
                                  var targetSpan = findSpanByInnerText(floorSectionLevel);
                                      if (targetSpan) {
-                                         targetSpan.classList.add('blink');// ?? ????????'??-??-??' 2025 07 31 23:57
+                                         targetSpan.classList.add('blink'); // 讓對應區段閃爍
                                     }
                               }
                             }
@@ -863,13 +853,13 @@
 
         }
 
-       //??,????
-       let floor = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.floor));
-       let section = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.section));
-       filterPositionsByFloorAndSection(floor, section);
-       //??????????
-       populateUI();
-       //?????? (???????,??,????????!!)
+    // 篩選: 以樓層與區段過濾顯示
+    let floor = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.floor));
+    let section = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.section));
+    filterPositionsByFloorAndSection(floor, section);
+    // 執行: 將資料標示到 UI
+    populateUI();
+    // 備註: 可能包含未翻譯的訊息或調試註記
 
          //(1) find the Section for the wanted clan
       populateSectionUI();
@@ -878,7 +868,7 @@
 
         function openQueryModalWithData() {
         var displayed_section = document.getElementById('RootDiv_Kindness_Layout').innerHTML;
-        //????
+        // 取得 modal 要顯示的內容
         var name = document.getElementById('Kindness_Name').innerHTML;
         var positionId = document.getElementById('Kindness_PositionId').innerHTML;
         //var applicant=document.getElementById('Kindness_Applicant').innerHTML;

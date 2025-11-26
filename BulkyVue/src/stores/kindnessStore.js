@@ -50,7 +50,9 @@ export const useKindnessStore = defineStore("kindness", () => {
     try {
       const response = await KindnessService.getAll();
       // Handle both array and object with data property
-      positions.value = Array.isArray(response) ? response : (response.data || []);
+      positions.value = Array.isArray(response)
+        ? response
+        : response.data || [];
     } catch (err) {
       error.value = err.message;
       positions.value = []; // Ensure positions is always an array

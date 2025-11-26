@@ -2,8 +2,52 @@
 [ChenClan UI Error msg]
 
 ==================
+2025 11 27 00:01
+==================
+
+------------------
+2025 11 27 00:20
+------------------
+
+Normalize Razor file Encodings to UTF-8
+
+------------------
+2025 11 27 00:01
+------------------
+
+Scan all the possibel View files of the project for any remaining question-mark garbled comments or generated displayed  Html tags, and fix them if present.
+
+
+==================
 2025 11 26 10:21
 ==================
+
+------------------
+2025 11 26 23:56
+------------------
+scan all the files for any remaining question-mark garbled comments, and fix the two lines you highlighted if present.
+
+
+------------------
+2025 11 26 23:42
+------------------
+
+Please scan this page for  for 'Wierld Codes' and resolve them. Tks!
+
+
+------------------
+2025 11 26 22:12
+------------------
+
+ In http://localhost:5064/admin/ancestral/DisplayPosition?AncestralPositionId=1, I see wierld code rather than Chinese.
+ 
+------------------
+2025 11 26 18:12
+------------------
+
+
+In http://localhost:5064/admin/ancestral/DisplayPosition?AncestralPositionId=2  page,I see 'Wierd Code' not 'Chinese'.
+Help scan all the possible views to resolve this issue with the same pattern. Tks!
 
 
 ------------------
@@ -33,6 +77,7 @@ getKindnessConfig @ apiService.js:23
 ------------------
 
 In http://localhost:5064/admin/ancestral/DisplayPosition?AncestralPositionId=2  page,I see 'Wierd Code' not 'Chinese'.
+Help scan all the possible views to resolve this issue with the same pattern. Tks!
 
 
 ------------------

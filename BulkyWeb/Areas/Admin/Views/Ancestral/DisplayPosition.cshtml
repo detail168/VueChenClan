@@ -1,4 +1,4 @@
-@model AncestralPosition
+﻿@model AncestralPosition
 @using System.Text.Json
 @{
 
@@ -68,10 +68,10 @@
         <label>名稱</label>
         <label id="Ancestral_Name" class="displaylabel blink_name">@Model.Name</label>
         <label id="Ancestral_PositionId" class="displaylabel blink_name">@Model.PositionId</label>
-    @*     <label id="Ancestral_Applicant">???:@Model.Applicant</label> *@
+    @*     <label id="Ancestral_Applicant">申請人:@Model.Applicant</label> *@
         <label></label>
     </div>
-    <h2> 側,區</h2>
+    <h2>祖先 側,區</h2>
     <div>
         <div id="RootDiv_Ancestral_layout" class="position-container-Ancestral-layout"></div>
     </div>
@@ -137,9 +137,9 @@
         //////////////////////////
         //0.祖先 側,區,層配置清單
         // (說明) r代表 右側 位置
-        /////////////////////////
-        // 右側側配置清單:側,區,層,位置數
-        var arlayout=@Html.Raw(JsonSerializer.Serialize<object>(ViewBag.AncestralLayout_R));
+            ////////////////////////////
+            // 說明: 佈局與位置初始化 (側 / 區 / 層 / 位置)
+            ///////////////////////////
          // 左側配置清單:側,區,層,位置數
         var allayout=@Html.Raw(JsonSerializer.Serialize<object>(ViewBag.AncestralLayout_L));
          // 配置/配置清單:側,區,層,位置數,備註配置,側,區,層,位置
@@ -152,544 +152,449 @@
         // 層級 1到10行:
         // 右側行1配置數據
         var ararow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.ararow1));
-        // ?????2??????
+        // 右側行2配置
         var ararow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.ararow2));
-        // ?????3??????
+        // 右側行3配置
         var ararow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.ararow3));
-        // ?????4??????
+        // 右側行4配置
         var ararow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.ararow4));
-        // ?????5??????
+        // 右側行5配置
         var ararow5 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.ararow5));
-        // ?????6??????
+        // 右側行6配置
         var ararow6 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.ararow6));
-        // ?????7??????
+        // 右側行7配置
         var ararow7 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.ararow7));
-        // ?????8??????
+        // 右側行8配置
         var ararow8 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.ararow8));
-        // ?????9??????
-        var ararow9 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.ararow9));
-        // ?????10??????
+        // 右側行9配置
+                        let position=row[j]; // position id in this cell
+                        let positionId = desc+rowId+"層:" + position;  // eg: 側-區-7層:34  format:側-區-層:位置
         var ararow10 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.ararow10));
 
-        // ?? ?1?10?:
-        // ?????1??????
+        // 右側 B 行1配置
         var arbrow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.arbrow1));
-        // ?????2??????
+        // 右側 B 行2配置
         var arbrow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.arbrow2));
-        // ?????3??????
+        // 右側 B 行3配置
         var arbrow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.arbrow3));
-        // ?????4??????
+        // 右側 B 行4配置
         var arbrow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.arbrow4));
-        // ?????5??????
+        // 右側 B 行5配置
         var arbrow5 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.arbrow5));
-        // ?????6??????
+        // 右側 B 行6配置
         var arbrow6 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.arbrow6));
-        // ?????7??????
+        // 右側 B 行7配置
         var arbrow7 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.arbrow7));
-        // ?????8??????
+        // 右側 B 行8配置
         var arbrow8 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.arbrow8));
-        // ?????9??????
+        // 右側 B 行9配置
         var arbrow9 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.arbrow9));
-        // ?????10??????
+        // 右側 B 行10配置
         var arbrow10 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.arbrow10));
 
-        // ?? ?1?10?:
-        // ?????1??????
+        // C 區行配置 (1-10)
+        // 行1配置
         var arcrow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.arcrow1));
-        // ?????2??????
+        // 行2配置
         var arcrow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.arcrow2));
-        // ?????3??????
+        // 行3配置
         var arcrow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.arcrow3));
-        // ?????4??????
+        // 行4配置
         var arcrow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.arcrow4));
-        // ?????5??????
+        // 行5配置
         var arcrow5 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.arcrow5));
-        // ?????6??????
+        // 行6配置
         var arcrow6 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.arcrow6));
-        // ?????7??????
+        // 行7配置
         var arcrow7 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.arcrow7));
-        // ?????8??????
+        // 行8配置
         var arcrow8 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.arcrow8));
-        // ?????9??????
+        // 行9配置
         var arcrow9 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.arcrow9));
-        // ?????10??????
+        // 行10配置
         var arcrow10 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.arcrow10));
 
-        // ?? ?1?10?:
-        // ?????1??????
+        // D 區行配置 (1-10)
+        // 行1配置
         var ardrow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.ardrow1));
-        // ?????2??????
+        // 行2配置
         var ardrow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.ardrow2));
-        // ?????3??????
+        // 行3配置
         var ardrow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.ardrow3));
-        // ?????4??????
+        // 行4配置
         var ardrow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.ardrow4));
-        // ?????5??????
+        // 行5配置
         var ardrow5 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.ardrow5));
-        // ?????6??????
+        // 行6配置
         var ardrow6 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.ardrow6));
-        // ?????7??????
+        // 行7配置
         var ardrow7 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.ardrow7));
-        // ?????8??????
+        // 行8配置
         var ardrow8 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.ardrow8));
-        // ?????9??????
+        // 行9配置
         var ardrow9 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.ardrow9));
-        // ?????10??????
+        // 行10配置
         var ardrow10 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.ardrow10));
 
         //2025 08 26 14:27
-        // ?? ?? ?1?10?:
-        // ?????1??????
+        // M 區行配置 (1-10)
+        // 行1配置
         var armrow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.armrow1));
-        // ?????2??????
+        // 行2配置
         var armrow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.armrow2));
-        // ?????3??????
+        // 行3配置
         var armrow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.armrow3));
-        // ?????4??????
+        // 行4配置
         var armrow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.armrow4));
-        // ?????5??????
+        // 行5配置
         var armrow5 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.armrow5));
-        // ?????6??????
+        // 行6配置
         var armrow6 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.armrow6));
-        // ?????7??????
+        // 行7配置
         var armrow7 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.armrow7));
-        // ?????8??????
+        // 行8配置
         var armrow8 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.armrow8));
-        // ?????9??????
+        // 行9配置
         var armrow9 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.armrow9));
-        // ?????10??????
+        // 行10配置
         var armrow10 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.armrow10));
          //////////////////////////
-        //?.?????????
-        // (??) l? ?? ??
+        // 3. 左側行數據 (層級)
+        // (說明) l代表 左側 位置
         /////////////////////////
-        // ?? ?1?10?:
-        // ?????1??????
+        // 左側 A 區行配置 (1-10)
+        // 行1配置
         var alarow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.alarow1));
-        // ?????2??????
+        // 行2配置
         var alarow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.alarow2));
-        // ?????3??????
+        // 行3配置
         var alarow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.alarow3));
-        // ?????4??????
+        // 行4配置
         var alarow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.alarow4));
-        // ?????5??????
+        // 行5配置
         var alarow5 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.alarow5));
-        // ?????6??????
+        // 行6配置
         var alarow6 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.alarow6));
-        // ?????7??????
+        // 行7配置
         var alarow7 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.alarow7));
-        // ?????8??????
+        // 行8配置
         var alarow8 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.alarow8));
-        // ?????9??????
+        // 行9配置
         var alarow9 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.alarow9));
-        // ?????10??????
+        // 行10配置
         var alarow10 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.alarow10));
 
-        // ?? ?1?10?:
-        // ?????1??????
+        // 左側 B 區行配置 (1-10)
+        // 行1配置
         var albrow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.albrow1));
-        // ?????2??????
+        // 行2配置
         var albrow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.albrow2));
-        // ?????3??????
+        // 行3配置
         var albrow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.albrow3));
-        // ?????4??????
+        // 行4配置
         var albrow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.albrow4));
-        // ?????5??????
+        // 行5配置
         var albrow5 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.albrow5));
-        // ?????6??????
+        // 行6配置
         var albrow6 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.albrow6));
-        // ?????7??????
+        // 行7配置
         var albrow7 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.albrow7));
-        // ?????8??????
+        // 行8配置
         var albrow8 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.albrow8));
-        // ?????9??????
+        // 行9配置
         var albrow9 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.albrow9));
-        // ?????10??????
+        // 行10配置
         var albrow10 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.albrow10));
 
-        // ?? ?1?10?:
-        // ?????1??????
+        // 左側 C 區行配置 (1-10)
+        // 行1配置
         var alcrow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.alcrow1));
-        // ?????2??????
+        // 行2配置
         var alcrow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.alcrow2));
-        // ?????3??????
+        // 行3配置
         var alcrow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.alcrow3));
-        // ?????4??????
+        // 行4配置
         var alcrow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.alcrow4));
-        // ?????5??????
+        // 行5配置
         var alcrow5 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.alcrow5));
-        // ?????6??????
+        // 行6配置
         var alcrow6 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.alcrow6));
-        // ?????7??????
+        // 行7配置
         var alcrow7 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.alcrow7));
-        // ?????8??????
+        // 行8配置
         var alcrow8 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.alcrow8));
-        // ?????9??????
+        // 行9配置
         var alcrow9 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.alcrow9));
-        // ?????10??????
+        // 行10配置
         var alcrow10 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.alcrow10));
 
-        // ?? ?1?10?:
-        // ?????1??????
+        // 左側 D 區行配置 (1-10)
+        // 行1配置
         var aldrow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.aldrow1));
-        // ?????2??????
+        // 行2配置
         var aldrow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.aldrow2));
-        // ?????3??????
+        // 行3配置
         var aldrow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.aldrow3));
-        // ?????4??????
+        // 行4配置
         var aldrow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.aldrow4));
-        // ?????5??????
+        // 行5配置
         var aldrow5 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.aldrow5));
-        // ?????6??????
+        // 行6配置
         var aldrow6 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.aldrow6));
-        // ?????7??????
+        // 行7配置
         var aldrow7 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.aldrow7));
-        // ?????8??????
+        // 行8配置
         var aldrow8 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.aldrow8));
-        // ?????9??????
+        // 行9配置
         var aldrow9 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.aldrow9));
-        // ?????10??????
+        // 行10配置
         var aldrow10 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.aldrow10));
 
         //2025 08 26 14:27
-        // ?? ?? ?1?10?:
-        // ?????1??????
+        // M 右側行群 (1-10)
+        // 行1配置
         var almrow1 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.almrow1));
-        // ?????2??????
+        // 行2配置
         var almrow2 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.almrow2));
-        // ?????3??????
+        // 行3配置
         var almrow3 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.almrow3));
-        // ?????4??????
+        // 右側 M 區: 行4-10 配置資料 (來源: ViewBag.almrowX)
         var almrow4 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.almrow4));
-        // ?????5??????
         var almrow5 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.almrow5));
-        // ?????6??????
         var almrow6 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.almrow6));
-        // ?????7??????
         var almrow7 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.almrow7));
-        // ?????8??????
         var almrow8 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.almrow8));
-        // ?????9??????
         var almrow9 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.almrow9));
-        // ?????10??????
         var almrow10 = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.almrow10));
 
         //////////////////////////////
-        // ?.????.??.????????
+        // 4. 左側位置二維數組配置
         /////////////////////////////
 
-        //??,??~?? ????????
+        // 左側 A 區行,列~ 行 位置二維配置
         var positionary_alaary = Array.from({ length: @(ViewBag.lar ?? 0) }, () => Array(@(ViewBag.lac ?? 0)).fill(0));
-        // ?????1??????
-        positionary_alaary[0] = alarow1.split(",");
-        // ?????2?????
-        positionary_alaary[1] = alarow2.split(",");
-        // ?????3??????
-        positionary_alaary[2] = alarow3.split(",");
-        // ?????4??????
-        positionary_alaary[3] = alarow4.split(",");
-        // ?????5??????
-        positionary_alaary[4] = alarow5.split(",");
-        // ?????6??????
-        positionary_alaary[5] = alarow6.split(",");
-        // ?????7??????
-        positionary_alaary[6] = alarow7.split(",");
-        // ?????8??????
-        positionary_alaary[7] = alarow8.split(",");
-        // ?????9??????
-        positionary_alaary[8] = alarow9.split(",");
-        // ?????10??????
-        positionary_alaary[9] = alarow10.split(",");
+        // 說明: 左側 A 區位置陣列初始化 (將每列字串拆分為位置陣列)
+            // 左側 A 區行,列 位置二維配置
+            positionary_alaary[0] = alarow1.split(",");
+            positionary_alaary[1] = alarow2.split(",");
+            positionary_alaary[2] = alarow3.split(",");
+            positionary_alaary[3] = alarow4.split(",");
+            positionary_alaary[4] = alarow5.split(",");
+            positionary_alaary[5] = alarow6.split(",");
+            positionary_alaary[6] = alarow7.split(",");
+            positionary_alaary[7] = alarow8.split(",");
+            positionary_alaary[8] = alarow9.split(",");
+            positionary_alaary[9] = alarow10.split(",");
 
-        //??,????????
+        /// 說明: 左側 B 區位置二維陣列初始化
         var positionary_albary = Array.from({ length: @(ViewBag.lbr ?? 0) }, () => Array(@(ViewBag.lbc ?? 0)).fill(0));
-        // ?????1??????
-        positionary_albary[0] = albrow1.split(",");
-        // ?????2??????
-        positionary_albary[1] = albrow2.split(",");
-        // ?????3??????
-        positionary_albary[2] = albrow3.split(",");
-        // ?????4??????
-        positionary_albary[3] = albrow4.split(",");
-        // ?????5??????
-        positionary_albary[4] = albrow5.split(",");
-        // ?????6??????
-        positionary_albary[5] = albrow6.split(",");
-        // ?????7??????
-        positionary_albary[6] = albrow7.split(",");
-        // ?????8??????
-        positionary_albary[7] = albrow8.split(",");
-        // ?????9??????
-        positionary_albary[8] = albrow9.split(",");
-        // ?????10??????
-        positionary_albary[9] = albrow10.split(",");
+        // 初始化: 將每列字串拆分為位置陣列 (來源: ViewBag)
+            positionary_albary[0] = albrow1.split(",");
+            positionary_albary[1] = albrow2.split(",");
+            positionary_albary[2] = albrow3.split(",");
+            positionary_albary[3] = albrow4.split(",");
+            positionary_albary[4] = albrow5.split(",");
+            positionary_albary[5] = albrow6.split(",");
+            positionary_albary[6] = albrow7.split(",");
+            positionary_albary[7] = albrow8.split(",");
+            positionary_albary[8] = albrow9.split(",");
+            positionary_albary[9] = albrow10.split(",");
 
-        //??,????????
+        /// 說明: 左側 C 區位置二維陣列初始化
         var positionary_alcary = Array.from({ length: @(ViewBag.lcr ?? 0) }, () => Array(@(ViewBag.lcc ?? 0)).fill(0));
-        // ?????1??????
-        positionary_alcary[0] = alcrow1.split(",");
-        // ?????2??????
-        positionary_alcary[1] = alcrow2.split(",");
-        // ?????3??????
-        positionary_alcary[2] = alcrow3.split(",");
-        // ?????4??????
-        positionary_alcary[3] = alcrow4.split(",");
-        // ?????5??????
-        positionary_alcary[4] = alcrow5.split(",");
-        // ?????6??????
-        positionary_alcary[5] = alcrow6.split(",");
-        // ?????7??????
-        positionary_alcary[6] = alcrow7.split(",");
-        // ?????8??????
-        positionary_alcary[7] = alcrow8.split(",");
-        // ?????9??????
-        positionary_alcary[8] = alcrow9.split(",");
-        // ?????10??????
-        positionary_alcary[9] = alcrow10.split(",");
+        // 初始化: 將每列字串拆分為位置陣列 (來源: ViewBag)
+            positionary_alcary[0] = alcrow1.split(",");
+            positionary_alcary[1] = alcrow2.split(",");
+            positionary_alcary[2] = alcrow3.split(",");
+            positionary_alcary[3] = alcrow4.split(",");
+            positionary_alcary[4] = alcrow5.split(",");
+            positionary_alcary[5] = alcrow6.split(",");
+            positionary_alcary[6] = alcrow7.split(",");
+            positionary_alcary[7] = alcrow8.split(",");
+            positionary_alcary[8] = alcrow9.split(",");
+            positionary_alcary[9] = alcrow10.split(",");
 
-        //??,????????
+        /// 說明: 左側 D 區位置二維陣列初始化
         var positionary_aldary = Array.from({ length: @(ViewBag.ldr ?? 0) }, () => Array(@(ViewBag.ldc ?? 0)).fill(0));
-        // ?????1??????
-        positionary_aldary[0] = aldrow1.split(",");
-        // ?????2??????
-        positionary_aldary[1] = aldrow2.split(",");
-        // ?????3??????
-        positionary_aldary[2] = aldrow3.split(",");
-        // ?????4??????
-        positionary_aldary[3] = aldrow4.split(",");
-        // ?????5??????
-        positionary_aldary[4] = aldrow5.split(",");
-        // ?????6??????
-        positionary_aldary[5] = aldrow6.split(",");
-        // ?????7??????
-        positionary_aldary[6] = aldrow7.split(",");
-        // ?????8??????
-        positionary_aldary[7] = aldrow8.split(",");
-        // ?????9??????
-        positionary_aldary[8] = aldrow9.split(",");
-        // ?????10??????
-        positionary_aldary[9] = aldrow10.split(",");
+        // 初始化: 將每列字串拆分為位置陣列 (來源: ViewBag)
+            positionary_aldary[0] = aldrow1.split(",");
+            positionary_aldary[1] = aldrow2.split(",");
+            positionary_aldary[2] = aldrow3.split(",");
+            positionary_aldary[3] = aldrow4.split(",");
+            positionary_aldary[4] = aldrow5.split(",");
+            positionary_aldary[5] = aldrow6.split(",");
+            positionary_aldary[6] = aldrow7.split(",");
+            positionary_aldary[7] = aldrow8.split(",");
+            positionary_aldary[8] = aldrow9.split(",");
+            positionary_aldary[9] = aldrow10.split(",");
 
         //2025 08 26 14:28
-        //?? ??,????????
+        /// 說明: 左側 M 區位置二維陣列初始化
         var positionary_almary = Array.from({ length: @(ViewBag.lmr ?? 0) }, () => Array(@(ViewBag.lmc ?? 0)).fill(0));
-        // ?????1??????
-        positionary_almary[0] = almrow1.split(",");
-        // ?????2??????
-        positionary_almary[1] = almrow2.split(",");
-        // ?????3??????
-        positionary_almary[2] = almrow3.split(",");
-        // ?????4??????
-        positionary_almary[3] = almrow4.split(",");
-        // ?????5??????
-        positionary_almary[4] = almrow5.split(",");
-        // ?????6??????
-        positionary_almary[5] = almrow6.split(",");
-        // ?????7??????
-        positionary_almary[6] = almrow7.split(",");
-        // ?????8??????
-        positionary_almary[7] = almrow8.split(",");
-        // ?????9??????
-        positionary_almary[8] = almrow9.split(",");
-        // ?????10??????
-        positionary_almary[9] = almrow10.split(",");
+        // 初始化: 將每列字串拆分為位置陣列 (來源: ViewBag)
+            positionary_almary[0] = almrow1.split(",");
+            positionary_almary[1] = almrow2.split(",");
+            positionary_almary[2] = almrow3.split(",");
+            positionary_almary[3] = almrow4.split(",");
+            positionary_almary[4] = almrow5.split(",");
+            positionary_almary[5] = almrow6.split(",");
+            positionary_almary[6] = almrow7.split(",");
+            positionary_almary[7] = almrow8.split(",");
+            positionary_almary[8] = almrow9.split(",");
+            positionary_almary[9] = almrow10.split(",");
 
-       //??,??~?? ????????
-       var positionary_araary = Array.from({ length: @(ViewBag.rar ?? 0) }, () => Array(@(ViewBag.rac ?? 0)).fill(0));
-
-        // ?????1??????
-        positionary_araary[0] = ararow1.split(",");
-        // ?????2??????
-        positionary_araary[1] = ararow2.split(",");
-        // ?????3??????
-        positionary_araary[2] = ararow3.split(",");
-        // ?????4??????
-        positionary_araary[3] = ararow4.split(",");
-        // ?????5??????
-        positionary_araary[4] = ararow5.split(",");
-        // ?????6??????
-        positionary_araary[5] = ararow6.split(",");
-        // ?????7??????
-        positionary_araary[6] = ararow7.split(",");
-        // ?????8??????
-        positionary_araary[7] = ararow8.split(",");
-        // ?????9??????
-        positionary_araary[8] = ararow9.split(",");
-        // ?????10??????
+         /// 說明: 右側 A 區位置二維陣列初始化
+         var positionary_araary = Array.from({ length: @(ViewBag.rar ?? 0) }, () => Array(@(ViewBag.rac ?? 0)).fill(0));
+     // 初始化: 將每列字串拆分為位置陣列 (來源: ViewBag)
+    positionary_araary[0] = ararow1.split(",");
+    positionary_araary[1] = ararow2.split(",");
+    positionary_araary[2] = ararow3.split(",");
+    positionary_araary[3] = ararow4.split(",");
+    positionary_araary[4] = ararow5.split(",");
+    positionary_araary[5] = ararow6.split(",");
+    positionary_araary[6] = ararow7.split(",");
+    positionary_araary[7] = ararow8.split(",");
+    positionary_araary[8] = ararow9.split(",");
+    positionary_araary[9] = ararow10.split(",");
+        // 初始化: 第10列位置
         positionary_araary[9] = ararow10.split(",");
 
-        //??,????????
+        /// 說明: 右側 B 區位置二維陣列初始化
         var positionary_arbary = Array.from({ length: @(ViewBag.rbr ?? 0) }, () => Array(@(ViewBag.rbc ?? 0)).fill(0));
 
-        // ?????1??????
+        // 初始化: 各列位置設定 (來源: ViewBag)
         positionary_arbary[0] = arbrow1.split(",");
-        // ?????2??????
         positionary_arbary[1] = arbrow2.split(",");
-        // ?????3??????
         positionary_arbary[2] = arbrow3.split(",");
-        // ?????4??????
         positionary_arbary[3] = arbrow4.split(",");
-        // ?????5??????
         positionary_arbary[4] = arbrow5.split(",");
-        // ?????6??????
         positionary_arbary[5] = arbrow6.split(",");
-        // ?????7??????
         positionary_arbary[6] = arbrow7.split(",");
-        // ?????8??????
         positionary_arbary[7] = arbrow8.split(",");
-        // ?????9??????
         positionary_arbary[8] = arbrow9.split(",");
-        // ?????10??????
         positionary_arbary[9] = arbrow10.split(",");
 
-        //??,????????
+        /// 說明: 右側 C 區位置二維陣列初始化
         var positionary_arcary = Array.from({ length: @(ViewBag.rcr ?? 0) }, () => Array(@(ViewBag.rcc ?? 0)).fill(0));
-        // ?????1??????
+        // 初始化: 各列位置設定 (來源: ViewBag)
         positionary_arcary[0] = arcrow1.split(",");
-        // ?????2??????
         positionary_arcary[1] = arcrow2.split(",");
-        // ?????3??????
         positionary_arcary[2] = arcrow3.split(",");
-        // ?????4??????
         positionary_arcary[3] = arcrow4.split(",");
-        // ?????5??????
         positionary_arcary[4] = arcrow5.split(",");
-        // ?????6??????
         positionary_arcary[5] = arcrow6.split(",");
-        // ?????7??????
         positionary_arcary[6] = arcrow7.split(",");
-        // ?????8??????
         positionary_arcary[7] = arcrow8.split(",");
-        // ?????9??????
         positionary_arcary[8] = arcrow9.split(",");
-        // ?????10??????
         positionary_arcary[9] = arcrow10.split(",");
 
-        //??,????????
+        /// 說明: 右側 D 區位置二維陣列初始化
         var positionary_ardary = Array.from({ length: @(ViewBag.rdr ?? 0) }, () => Array(@(ViewBag.rdc ?? 0)).fill(0));
-        // ?????1??????
+        // 初始化: 各列位置設定 (來源: ViewBag)
         positionary_ardary[0] = ardrow1.split(",");
-        // ?????2??????
         positionary_ardary[1] = ardrow2.split(",");
-        // ?????3??????
         positionary_ardary[2] = ardrow3.split(",");
-        // ?????4??????
         positionary_ardary[3] = ardrow4.split(",");
-        // ?????5??????
         positionary_ardary[4] = ardrow5.split(",");
-        // ?????6??????
         positionary_ardary[5] = ardrow6.split(",");
-        // ?????7??????
         positionary_ardary[6] = ardrow7.split(",");
-        // ?????8??????
         positionary_ardary[7] = ardrow8.split(",");
-        // ?????9??????
         positionary_ardary[8] = ardrow9.split(",");
-        // ?????10??????
         positionary_ardary[9] = ardrow10.split(",");
 
         //2025 08 26 14:28
-        //?? ??,????????
+        /// 說明: 右側 M 區位置二維陣列初始化
         var positionary_armary = Array.from({ length: @(ViewBag.rmr ?? 0) }, () => Array(@(ViewBag.rmc ?? 0)).fill(0));
-        // ?????1??????
+        // 初始化: 各列位置設定 (來源: ViewBag)
         positionary_armary[0] = armrow1.split(",");
-        // ?????2??????
         positionary_armary[1] = armrow2.split(",");
-        // ?????3??????
         positionary_armary[2] = armrow3.split(",");
-        // ?????4??????
         positionary_armary[3] = armrow4.split(",");
-        // ?????5??????
         positionary_armary[4] = armrow5.split(",");
-        // ?????6??????
         positionary_armary[5] = armrow6.split(",");
-        // ?????7??????
         positionary_armary[6] = armrow7.split(",");
-        // ?????8??????
         positionary_armary[7] = armrow8.split(",");
-        // ?????9??????
         positionary_armary[8] = armrow9.split(",");
-        // ?????10??????
         positionary_armary[9] = armrow10.split(",");
 
 
-         // ???,,? ????? 2025 07 12 13:14
+        // 初始化: 佈局陣列 (來源: 2025-07-12 13:14)
         var alayout_ary = Array.from({ length: @(ViewBag.AncestralSide ?? 0) }, () => Array(@(ViewBag.AncestralSection ?? 0)).fill(0));
-         // ???? ????? 2025 07 12 13:14
+        // 設定: 左側佈局資料 (來源: 2025-07-12 13:14)
         alayout_ary[0] = allayout.split(",");
-         // ???? ????? 2025 07 12 13:14
+        // 設定: 右側佈局資料 (來源: 2025-07-12 13:14)
         alayout_ary[1] = arlayout.split(",");
 
-         // ???,,? ????? 2025 07 12 13:14
+        // 另一組初始化（歷史遺留）: 佈局陣列（來源: 2025-07-12 13:14）
         var alayout_ary = Array.from({ length: @(ViewBag.AncestralSide - 1 ?? 0) }, () => Array(@(ViewBag.AncestralSection * 2 ?? 0)).fill(0));
-         // ???? ????? 2025 07 12 13:14
+        // 設定: 佈局字串分割為陣列
         alayout_ary[0] = alayout.split(",");
 
-        ////////////////////////////
-        //?.?????
-        ///////////////////////////
+          ////////////////////////////
+          // 佈局渲染區塊說明
+          ////////////////////////////
 
-        /////////////////////////
-        //??, ??~?? ????
-        /////////////////////////
+          /////////////////////////
+          /// 說明: 區段與側邊位置渲染
+          /////////////////////////
 
               /////////////////////////
-        //??, ??~?? ????
-        /////////////////////////
-        //(1)??,????
-        // l:?? // ?? // ??// ??// ??
-        //===============
-        // r:?? // ?? // ?? // ?? //??
+          /// 說明: 左右側與區段的配置說明
+          /////////////////////////
+          // (1) 左右側示意
+          // l: 左側 (left)
+          //===============
+          // r: 右側 (right)
 
          //2025 08 26 14:28
-         // ????-????:
-        var desc="??-??-";
+         // M區-左側:
+        var desc="M區-左側-";
         renderPositionRows("RootDiv_Ancestral_left",positionary_almary,desc,'levelleft','positionAncestral');
 
-        // ????????:
-        desc="??-??-";
+        // A區-左側:
+        desc="A區-左側-";
         renderPositionRows("RootDiv_Ancestral_left",positionary_alaary,desc,'levelleft','positionAncestral');
 
-         // ????????:
-        desc="??-??-";
+         // B區-左側:
+        desc="B區-左側-";
         renderPositionRows("RootDiv_Ancestral_left",positionary_albary,desc,'levelleft','positionAncestral');
 
-          // ????????:
-        desc="??-??-";
+          // C區-左側:
+        desc="C區-左側-";
         renderPositionRows("RootDiv_Ancestral_left",positionary_alcary,desc,'levelleft','positionAncestral');
 
 
-        // ????????:
-        desc="??-??-";
+        // D區-左側:
+        desc="D區-左側-";
         renderPositionRows("RootDiv_Ancestral_left",positionary_aldary,desc,'levelleft','positionAncestral');
 
         /////////////////////////
-        //??, ??~?? ????
+        // 右側位置配置
         /////////////////////////
         //2025 08 26 14:28
-        // ????-????:
-        var desc="??-??-";
+        // M區-右側:
+        var desc="M區-右側-";
         renderPositionRows("RootDiv_Ancestral_right",positionary_armary,desc,'levelleft','positionAncestral')
 
-        // ????????:
-        desc="??-??-";
+        // A區-右側:
+        desc="A區-右側-";
         renderPositionRows("RootDiv_Ancestral_right",positionary_araary,desc,'levelright','positionAncestral');
 
-        // ????????:
-        desc="??-??-";
+        // B區-右側:
+        desc="B區-右側-";
         renderPositionRows("RootDiv_Ancestral_right",positionary_arbary,desc,'levelright','positionAncestral');
 
-        // ????????:
-        desc="??-??-";
+        // C區-右側:
+        desc="C區-右側-";
         renderPositionRows("RootDiv_Ancestral_right",positionary_arcary,desc,'levelright','positionAncestral');
 
-        // ????????:
-        desc="??-??-";
+        // D區-右側:
+        desc="D區-右側-";
         renderPositionRows("RootDiv_Ancestral_right",positionary_ardary, desc,'levelright','positionAncestral');
 
 
-         // ??:???????????????(????,????)
-        // ??:positionary_asideary ??,????
+         // 說明: 渲染側與區段 (參數: root_div, positionary_asideary)
+        // 參數解釋: positionary_asideary 為每個區段的名稱或位置集合
          function renderLayoutSideSection(root_div,positionary_asideary,desc,levelClassName,positionClassName)
         {
                // alert('desc : '+desc);
@@ -697,34 +602,34 @@
                // alert('positionary_asideary : '+positionary_asideary);
                // alert('levelClassName : '+levelClassName);
             let sideDiv= document.createElement('div');
-               // ??class?row
+               // 設定 CSS class 為 row
             sideDiv.className = 'row';
             for (let i =0; i <= positionary_asideary.length-1 ; i++) {
                     //??
                     let  section = positionary_asideary[i];
-                    // ????span????????
+                    // 建立區段 span 並設定顯示文字與樣式
                     let SectionSpan = document.createElement('span');
-                    SectionSpan.readOnly = true //????
-                    SectionSpan.innerText = section;   // ??:?? eg: ?: ?,?,?,? /  ?: ?,?,?,?
-                    SectionSpan.className = positionClassName; // ??class????position
-                    // ???span?????rowDiv?
+                    SectionSpan.readOnly = true // 設為唯讀
+                    SectionSpan.innerText = section;   // 設定區段文字，例如: A區, B區
+                    SectionSpan.className = positionClassName; // 設定 span 的 class 為位置樣式
+                    // 將 span 加入 row 容器
                     sideDiv.appendChild(SectionSpan);
                 }
-                // ????span??????????? desc
+                // 建立並加入層級描述的 span（預留位置，現為註解）
+                    // 若需要，可在此加入層級描述的 span（目前註解）
                     // let descSpan = document.createElement('span');
-                    // descSpan.readOnly = true //????
-                    // descSpan.className = levelClassName; // ??class?classname
-                    // descSpan.innerText = desc; // ???????????
-                     // Add the span to the sideDiv
-                     // ???descSpan?????sideDiv?
+                    // descSpan.readOnly = true // 設為唯讀
+                    // descSpan.className = levelClassName; // 設定層級樣式
+                    // descSpan.innerText = desc; // 顯示區段描述
+                     // 將 descSpan 加入 sideDiv（目前保留為註解）
                     //sideDiv.appendChild(descSpan);
                 // Add the row div to the container
-                // ?????div???RootDiv_Kindness?
+                // 將 sideDiv 加入指定容器 (root_div)
                 document.getElementById(root_div).appendChild(sideDiv);
          }
 
-        // ??:??????????????(????,??,?,???)
-        // ??:positionary_asideary ??,??,?,????
+        // 說明: 渲染每列位置 (參數: root_div, positionary_asideary, desc, levelClassName, positionClassName)
+        // 參數解釋: positionary_asideary 為每列的位置陣列 (每列為一個位置陣列)
          function renderPositionRows(root_div,positionary_asideary,desc,levelClassName,positionClassName) {
             //Get each Row ID
             let rowId = "";
@@ -732,47 +637,45 @@
                 //Get each Row ID
                 rowId = (i+1)
                 // Get each row of position IDs
-                // ??????????
+                // 取得該列的位置陣列
                 let row = positionary_asideary[i];
-                // Create a div for the row
-                // ????div????????
-                let rowDiv = document.createElement('div');
-                // ??class?row
+                  // Create a div for the row
+                  // 建立 row 容器 div
+                  let rowDiv = document.createElement('div');
+                  // 設定 container class 為 row
                 rowDiv.className = 'row';
                 for (let j=0; j <= row.length-1;j++) {
                     // Get each position ID
-                    // ?????????
-                    let position=row[j]; //????
-                    let positionId = desc+rowId+"?:" + position;  //eg:??-??-7:34  format:?-?-?:?
+                      // 取得單一位置代碼
+                      let position=row[j]; // 單一位置代碼
+                    let positionId = desc+rowId+"層:" + position;  //eg:??-??-7:34  format:側-區-層:?
                     // Create a span for the position
-                    // ????span?????????
+                      // 建立位置顯示用的 span
                     let positionSpan = document.createElement('span');
-                    positionSpan.readOnly = true //????
+                      positionSpan.readOnly = true // 設為唯讀
                     if (position==="000")
                     {
-                           positionSpan.className = 'position_window_door'; // ?/???,???
-                           positionSpan.innerText = '???-???';   // ??:??'?/???,???'
+                           positionSpan.className = 'position_window_door';
+                           positionSpan.innerText = '空位';
                     }
                     else
                     {
-                           positionSpan.className = positionClassName; // ??class????position
-                           positionSpan.innerText = positionId; // ???????????
+                          positionSpan.className = positionClassName; // 設定位置 span 的 class
+                           positionSpan.innerText = positionId; // 設定顯示文字 (例如: 側-區-層:位置)
                     }
 
                     // Add the span to the row div
-                    // ???span?????rowDiv?
+                    // 將 position span 加入 rowDiv
                     rowDiv.appendChild(positionSpan);
                 }
-                // ????span??????????? desc
+                // 建立並加入層級標示的 span
                     let positionSpan = document.createElement('span');
-                    positionSpan.readOnly = true //????
-                    positionSpan.className = levelClassName; // ??class?classname
-                    positionSpan.innerText = desc.replace("\n","") +(i+1)+"?"; // ???????????
-                     // Add the span to the row div
-                    // ???span?????rowDiv?
+                    positionSpan.readOnly = true // 設為唯讀
+                    positionSpan.className = levelClassName; // 設定層級樣式
+                    positionSpan.innerText = desc.replace("\n","") +(i+1)+"層"; // 層級標示
                     rowDiv.appendChild(positionSpan);
                 // Add the row div to the container
-                // ?????div???RootDiv_Kindness?
+                // 將該列加入指定的容器（root_div）
                 document.getElementById(root_div).appendChild(rowDiv);
             }
         }
@@ -782,16 +685,17 @@
         function populateSectionUI() {
 
             const positions = document.querySelectorAll('.sectionAncestral');
-            var section = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.section)); //??????
+            var section = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.section)); /// 從 ViewBag 取得指定區段
             //alert('section: '+section);
                 if(section.length > 0) {
                     positions.forEach(position => {
-                        var  bool_result= (section+"?")==position.innerText;;//?? ===??
+                        var  bool_result= (section+"區")==position.innerText;;/// 比對是否為指定區
                         //alert('bool_result: ' +bool_result);
                         if (bool_result) {
-                            position.classList.add('Ancestralsectioncurrent');//??????'Ancestralsectioncurrent'
-                            position.classList.add('blink'); // ?? 2025 07 30 23:42
-                            //position.innerText += ('-'+ @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.PositionId))); //???????
+                            position.classList.add('Ancestralsectioncurrent');/// 標示為目前區段
+                            position.classList.add('blink'); // 設為閃爍以便顯示
+                            // 若需要，可將 PositionId 加到文字顯示上
+                            //position.innerText += ('-'+ @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.PositionId)));
                             }
                     });
                     }
@@ -804,36 +708,32 @@
             const positions = document.querySelectorAll('.positionAncestral');
             //alert('positions.length: '+positions.length);
 
-                //???????????? ViewBag.ListPositionId
+                /// 取得 ViewBag.ListPositionId
             var listPositionId = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.ListPositionId));
             //alert('listPositionId.length: '+listPositionId.length);
                 if(listPositionId.length > 0) {
                     //alert('kind==1');
                     //alert('ListPositionId: ' + JSON.stringify(listPositionId));
                     positions.forEach(position => {
-                        listPositionId.forEach(positionid => {  //???? //positionid  eg: '1?-??-7?-234,??1'
+                        listPositionId.forEach(positionid => {  /// 逐一比較資料庫回傳的已佔位置
                         var  Local_positionid=position.innerText;
-                        //alert('Local_positionid: ' +Local_positionid);//???? eg: '1?-??-7?-234'
-                        var  positionId_compared=positionid.substr(0,positionid.indexOf(","));  // ????[?]???:??
-                        //alert('positionId_compared: ' +positionId_compared);
-                        var  name=positionid.substr(positionid.indexOf(",")+1);  // ????[?]???:????
-                        //alert('name: ' +name);
-                        var  bool_result=positionId_compared===Local_positionid;//?? ===??
-                        //alert('bool_result: ' +bool_result);
-                          //???????
+                        // 取得資料庫位置字串的 id 部分
+                        var  positionId_compared=positionid.substr(0,positionid.indexOf(","));  // 取出 '側-區-層:位置' 部分
+                        var  name=positionid.substr(positionid.indexOf(",")+1);  // 取出姓名
+                        var  bool_result=positionId_compared===Local_positionid; // 比對是否相符
+                          // 目前使用者選取的 PositionId
                         var currentPositonId=  @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.PositionId));
                         if (bool_result) {
-                            position.classList.add('occupied');//????????
+                            position.classList.add('occupied'); // 標示為已佔用
                             position.innerText += ('-'+ name);
-                             if (currentPositonId === Local_positionid) //???????
+                             if (currentPositonId === Local_positionid) // 若為目前選中的位置
                               {
-                                 position.classList.add('current');//??????????
-                                 position.classList.add('blink');// ?? ??????? 2025 07 31 23:57
-                                 var  sideSectionLevel=positionid.substr(0,positionid.indexOf(":"));  // ??[:][?]???:??-??-??
-                                 //alert('sideSectionLevel'+sideSectionLevel);
+                                 position.classList.add('current'); // 標示為目前位置
+                                 position.classList.add('blink');// 設為閃爍顯示
+                                 var  sideSectionLevel=positionid.substr(0,positionid.indexOf(":"));  // 取出側/區/層前段
                                  var targetSpan = findSpanByInnerText(sideSectionLevel);
                                      if (targetSpan) {
-                                         targetSpan.classList.add('blink');// ?? ????????'??-??-??' 2025 07 31 23:57
+                                         targetSpan.classList.add('blink');// 讓對應區段閃爍
                                     }
                               }
                             }
@@ -855,15 +755,15 @@
         return null; // Not found
        }
 
-          //?,????
+          // 正規化: 處理側/區的標記
         function filterPositionsBySideAndSection(side, section) {
         // Normalize for "??"
         const allSides = (side === "0");
         const allSections = (section === "0");
 
         // Build label for matching
-        const sideLabel = allSides ? "" : side + "?";
-        const sectionLabel = allSections ? "" : section + "?";
+        const sideLabel = allSides ? "" : side + "側";
+        const sectionLabel = allSections ? "" : section + "區";
 
          // 2025 07 15 01:43 Count right side positions fitted to [sideLabel] && [sectionLabel]:
             var PositionsFitted_count=0;
@@ -880,10 +780,9 @@
              //alert('PositionsFitted_count:'+PositionsFitted_count);
             // Count right side positions fitted to [sideLabel] && [sectionLabel]:
 
-            if (PositionsFitted_count==0)
+                if (PositionsFitted_count==0)
             {
-               openMsgModal("???:["+ side +"]????["+section+"]?,??????! ?:(1)??:??,??,??,??,??"+
-                "(2)??:??,??,??,??,?? " );
+               openMsgModal("提示：未找到符合條件的塔位 (側:"+ side +", 區:"+ section +")。請檢查設定或資料來源。 建議：(1) 檢查側/區設定；(2) 檢查佈局資料。");
                 // 2025 07 15 09:31 make Button 'displayWantedSideSecBtn' invisible
                 document.getElementById('displayWantedSideSecBtn').style.display = 'none';
             }
@@ -915,11 +814,11 @@
                     row.style.display = (sideMatch && sectionMatch) ? '' : 'none';
                 });
 
-                   // ??????:
-                desc="??-??,??";
+                                /*2025-07-18: 將某些元素高度調整為較高 (調整顯示優先)*/
+                desc="側-區,層";
                 renderLayoutSideSection("RootDiv_Ancestral_layout", alayout_ary[0],desc,'levelleft','sectionAncestral');
 
-                /*2025 07 18 15:13 Make ????? Higher than others*/
+                /*2025-07-18: 將某些元素高度調整為較高層級 (調整顯示優先順序)*/
                 MakeFirstClanHigher();
 
                 //alert(displayed_positionid)
@@ -928,15 +827,15 @@
         }
     }
 
-     //?????????;
+    /// 說明: 取得篩選條件 (側/區)
 
-     let side = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.side));
-     let section = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.section));
-     filterPositionsBySideAndSection(side, section);
+    let side = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.side));
+    let section = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.section));
+    filterPositionsBySideAndSection(side, section);
 
-      //??????????
-      populateUI();
-      //?????? (???????,??,????????!!)
+     /// 執行: 將資料顯示到 UI
+     populateUI();
+     /// 初始化完成
 
       //(1) find the Section for the wanted clan
       populateSectionUI();
@@ -944,8 +843,8 @@
       //Display Result onto a Modal windows 2025 07 11 16:01
 
         function openQueryModalWithData() {
-        var displayed_section = document.getElementById('RootDiv_Ancestral_layout').innerHTML;
-          //????
+                var displayed_section = document.getElementById('RootDiv_Ancestral_layout').innerHTML;
+                    // 取得 modal 要顯示的內容
         var name = document.getElementById('Ancestral_Name').innerHTML;
         var positionId = document.getElementById('Ancestral_PositionId').innerHTML;
         //var applicant=document.getElementById('Ancestral_Applicant').innerHTML;
@@ -980,12 +879,12 @@
 
 
 
-    /*2025 07 18 11:25 Make ????? Higher than others*/
+    /*2025-07-18: 將某些元素高度調整為較高 (調整顯示優先)*/
     function MakeFirstClanHigher() {
         const container = document.getElementById('RootDiv_Ancestral_layout');
         const spans = container.querySelectorAll('span');
         spans.forEach(span => {
-            if (span.innerText.trim() === "??") {   //?????-->??   2025 08 26 16:36
+            if (span.innerText.trim() === "上") {   /// 祖先標記
                 // Found!
                 span.classList.add('position-ancestor-layout');
                 //span.classList.add('blink_firstMan'); // ?? 2025 07 31 00:01
@@ -1034,3 +933,6 @@
     window.WORK_WARNING_SECONDS = @Html.Raw(JsonSerializer.Serialize<object>(ViewBag.WORK_WARNING_SECONDS));
 </script>
 <script src="~/js/AutoLogout.js" asp-append-version="true"></script>
+
+
+

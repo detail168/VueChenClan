@@ -5,7 +5,7 @@
 //});
 
 //            function loadDataTable() {dataTable = $('#tblData').DataTable({
-//                "ajax": { url: '/admin/ancestral/getall' },
+//                "ajax": { url: '/api/admin/ancestral' },
 //                "columns": [
 //                    { "data": "name", "width": "10%" },
 //                    { "data": "side", "width": "8%" },
@@ -20,7 +20,7 @@
 //                        "render": function (data) {
 //                            return `<div class="w-75 btn-group" role="group">
 //                     <a href="/admin/ancestral/upsert?id=${data}" class="btn btn-primary mx-2"> <i class="bi bi-pencil-square"></i> Edit</a>
-//                     <a onClick=Delete('/admin/ancestral/delete/${data}') class="btn btn-danger mx-2"> <i class="bi bi-trash-fill"></i> Delete</a>
+//                     <a onClick=Delete('/api/admin/ancestral/${data}') class="btn btn-danger mx-2"> <i class="bi bi-trash-fill"></i> Delete</a>
 //                    </div>`;
 //                        },
 //                        "width": "20%"
@@ -28,10 +28,9 @@
 //                ]
 //            })};
 
-
 //            function Delete(url) {Swal.fire({
-//                title: 'Are you sure? ½T»{§R°£?',
-//                text: "You won't be able to revert this! µLªk¦^´_!",
+//                title: 'Are you sure? ï¿½Tï¿½{ï¿½Rï¿½ï¿½?',
+//                text: "You won't be able to revert this! ï¿½Lï¿½kï¿½^ï¿½_!",
 //                icon: 'warning',
 //                showCancelButton: true,
 //                confirmButtonColor: '#3085d6',
@@ -50,4 +49,3 @@
 //                }
 //            })
 //};
-

@@ -2,7 +2,7 @@
 
 Please start backend and frontend at two separate terminals ( clear old ones before starting). Tks!
 
-Stop the running backend PowerShell process, rebuild to remove lock warnings, and restart it,
+Stop the running frontend and backend PowerShell process, rebuild them to remove lock warnings, and restart them. tks!
 
 Please start frontend at a separate terminals ( clear old ones before starting). Tks!
 

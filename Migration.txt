@@ -1,3 +1,113 @@
+
+【工作內容】:
+1. 精通 HTML / 熟悉 CSS ，熟悉 RWD 開發
+2. 熟悉 Vue.js 框架與精通 JavaScript
+3. 瞭解 HTTP、TCP 等網路通訊協定 / security，authentication等議題
+4. 熟悉一項後端語言，例如：Python、Dotnet Core
+5. 精通一項後端開發框架，例如：Django、Dotnet MVC 等
+6. 熟悉 WebAPI 與 MQTT 開發
+7. DI
+
+1.需有基礎的App開發經驗
+2.熟悉.net Core, vue.js
+3.熟MySQL、PostgreSQL 或 SQL Server
+4.有容器化經驗者尤佳
+
+[Good Advice]
+What would you seggest me to do next? Tks!
+
+Which Option(s) or priority would you seggest me to do next(A or B)? Tks!
+
+Which Option(s) or priority would you seggest me to do next(A or B or C)? Tks!
+==================
+2025 11 26 09:35
+==================
+
+------------------
+2025 11 26 14:45
+------------------
+Next optional steps:
+
+Push the integration test project to origin/main.
+Add more specific tests (POST/DELETE endpoints, error cases).
+Clean up ~80 build warnings (nullable reference types).
+Run tests in CI/CD pipeline if you have one.
+Proceed each of them one after one,please! tks!
+
+------------------
+2025 11 26 14:29
+------------------
+
+
+Starting: Refine Ancestral parity (move remaining API methods) (2/3)
+
+Read AncestralController.cs
+
+Read AncestralApiController.cs
+
+Completed: Refine Ancestral parity (move remaining API methods) (2/3)
+
+Progress update — A then B completed.
+
+
+------------------
+2025 11 26 14:15
+------------------
+If you'd like, I can now:
+
+Start the app and exercise a few endpoints automatically, or
+Create minimal example curl/PowerShell commands for testing each API endpoint, or
+Add unit/integration tests for the new API controllers.
+Which would you like me to do next?
+
+
+------------------
+2025 11 26 14:00
+------------------
+
+
+Next Steps (Optional):
+
+Refactor Category, Company, Product, Order, User controllers following same pattern
+Fix SavePositions() method to accept kindnessPositionId as parameter
+Add unit tests for new API controllers
+Deploy to production environment
+
+------------------
+2025 11 26 09:35
+------------------
+what would you seggest me  to do next? Tks!
+
+
+What would you seggest me  to do next? (A,B) Tks!
+
+==================
+2025 11 26 00:13
+==================
+
+Please transform each Razor View of this MVC project into Vue-Embedded one , then deploy this Vue-Based project onto Azure platform as a Web App Service by way of Docker image.
+
+4 Steps to go:
+
+1.Analyzing:
+	Analyze the MVC project system structure、 permission system of frontend and its connection with backend and depict the result into a pdf file for further enhancement.
+
+	A. For 'Ancestral and Kindness' directory, they each contains views to CRUD for ancestral and kindess postion.
+
+	B. For 3 files (appsettings.json 、appsettings.Development.json、appsettings.Production.json), they each contains settings for Layout for ancestral postioning and 		kindness postioning.
+2.Transforming:
+	Based on the result of Step 1,embed Vue mechanism into each View.
+
+3.Tesing:
+	Ensure the funtionalities of the Vue version adhere to his parent one (MVC proejct) by foreground testing.
+
+4.Deployment:
+	Deploy the Vue-Based project onto Azure platform by way of Docker image.
+
+Tks!
+
+
+
 ==================
 2025 11 25 00:49
 ==================

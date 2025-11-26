@@ -1,0 +1,53 @@
+# Docker Build Ignore File
+# Exclude unnecessary files from Docker context to reduce build size
+
+# Version control
+.git
+.gitignore
+.gitattributes
+
+# Build artifacts & dependencies
+**/bin/
+**/obj/
+**/node_modules/
+**/dist/
+
+# Development tools
+.vscode/
+.idea/
+.vs/
+*.user
+*.suo
+*.sln.DotSettings
+
+# IDE
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Environment files
+.env.local
+.env.*.local
+
+# Misc
+README.md
+LICENSE
+.dockerignore
+Dockerfile*
+docker-compose*.yml
+*.md
+.editorconfig
+
+# Tests
+**/test/
+**/tests/
+**/__tests__/
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.azure-pipelines/

@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  bulky-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bulkybook-app
+    ports:
+      - "8080:80"
+      - "8443:443"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Data Source=/app/data/sqlite.db
+      - Stripe__SecretKey=${STRIPE_SECRET_KEY:-sk_test_dummy}
+      - SendGrid__SecretKey=${SENDGRID_SECRET_KEY:-SG.dummy}
+      - Authentication__Jwt__SecretKey=${JWT_SECRET_KEY:-your-secret-key-min-32-chars-long!!!}
+    volumes:
+      - ./data:/app/data
+    networks:
+      - bulky-network
+    restart: unless-stopped
+
+  # Optional: SQL Server container for production-like environment
+  # mssql:
+  #   image: mcr.microsoft.com/mssql/server:2022-latest
+  #   container_name: bulkybook-mssql
+  #   environment:
+  #     SA_PASSWORD: YourPassword123!
+  #     ACCEPT_EULA: Y
+  #   ports:
+  #     - "1433:1433"
+  #   volumes:
+  #     - mssql-data:/var/opt/mssql
+  #   networks:
+  #     - bulky-network
+
+networks:
+  bulky-network:
+    driver: bridge
+# volumes:
+#   mssql-data:

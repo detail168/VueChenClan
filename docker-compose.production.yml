@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  bulky-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bulkybook-app-prod
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ConnectionStrings__DefaultConnection=${DB_CONNECTION_STRING}
+      - Stripe__SecretKey=${STRIPE_SECRET_KEY}
+      - SendGrid__SecretKey=${SENDGRID_SECRET_KEY}
+      - Authentication__Jwt__SecretKey=${JWT_SECRET_KEY}
+      - AZURE_APP_SERVICE=true
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  default:
+    name: bulky-production
+    driver: bridge

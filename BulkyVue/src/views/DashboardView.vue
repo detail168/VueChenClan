@@ -46,22 +46,24 @@
       <div class="card-body">
         <h5 class="card-title">系統資訊</h5>
         <table class="table table-sm">
-          <tr>
-            <td><strong>使用者：</strong></td>
-            <td>{{ authStore.user?.email }}</td>
-          </tr>
-          <tr>
-            <td><strong>角色：</strong></td>
-            <td>
-              <span v-for="role in authStore.userRoles" :key="role" class="badge bg-info me-1">
-                {{ role }}
-              </span>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>登入時間：</strong></td>
-            <td>{{ new Date().toLocaleString() }}</td>
-          </tr>
+          <tbody>
+            <tr>
+              <td><strong>使用者：</strong></td>
+              <td>{{ authStore.user?.email }}</td>
+            </tr>
+            <tr>
+              <td><strong>角色：</strong></td>
+              <td>
+                <span v-for="role in authStore.userRoles" :key="role" class="badge bg-info me-1">
+                  {{ role }}
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>登入時間：</strong></td>
+              <td>{{ new Date().toLocaleString() }}</td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>

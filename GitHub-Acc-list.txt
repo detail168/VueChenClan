@@ -22,10 +22,10 @@ Email Accounts: github copilot
 dailypower264@hotmail.com	used   34%  <-----
 -------------------  --------------
 2025 11 19  4code
-detail168@hotmail.com		used   0%
+detail168@hotmail.com		used   0%   <-----
 -------------------  --------------
 2025 11 19  4code
-fall13571@hotmail.com		used   0%
+fall13571@hotmail.com		used   18%  <-----
 -------------------  --------------
 2025 11 21  4code
 friday127216@hotmail.com	used   0%

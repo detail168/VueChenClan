@@ -187,57 +187,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
             ViewBag.floor = floor; //?????-? 
             ViewBag.section = section; //?????-? 
             ViewBag.level = level; //?????-? 
-            ViewBag.position = position; //?????-?
-            
-            // Initialize all layout ViewBag properties with empty lists to prevent JsonSerializer errors
-            if (ViewBag.KindnessLayout_1F == null) ViewBag.KindnessLayout_1F = new List<string>();
-            if (ViewBag.KindnessLayout_2F == null) ViewBag.KindnessLayout_2F = new List<string>();
-            if (ViewBag.KindnessLayout_3F == null) ViewBag.KindnessLayout_3F = new List<string>();
-            if (ViewBag.kf1arow1 == null) ViewBag.kf1arow1 = new List<string>();
-            if (ViewBag.kf1arow2 == null) ViewBag.kf1arow2 = new List<string>();
-            if (ViewBag.kf1arow3 == null) ViewBag.kf1arow3 = new List<string>();
-            if (ViewBag.kf1arow4 == null) ViewBag.kf1arow4 = new List<string>();
-            if (ViewBag.kf1brow1 == null) ViewBag.kf1brow1 = new List<string>();
-            if (ViewBag.kf1brow2 == null) ViewBag.kf1brow2 = new List<string>();
-            if (ViewBag.kf1brow3 == null) ViewBag.kf1brow3 = new List<string>();
-            if (ViewBag.kf1brow4 == null) ViewBag.kf1brow4 = new List<string>();
-            if (ViewBag.kf1crow1 == null) ViewBag.kf1crow1 = new List<string>();
-            if (ViewBag.kf1crow2 == null) ViewBag.kf1crow2 = new List<string>();
-            if (ViewBag.kf1crow3 == null) ViewBag.kf1crow3 = new List<string>();
-            if (ViewBag.kf1crow4 == null) ViewBag.kf1crow4 = new List<string>();
-            if (ViewBag.kf1drow1 == null) ViewBag.kf1drow1 = new List<string>();
-            if (ViewBag.kf1drow2 == null) ViewBag.kf1drow2 = new List<string>();
-            if (ViewBag.kf1drow3 == null) ViewBag.kf1drow3 = new List<string>();
-            if (ViewBag.kf1drow4 == null) ViewBag.kf1drow4 = new List<string>();
-            if (ViewBag.kf1erow1 == null) ViewBag.kf1erow1 = new List<string>();
-            if (ViewBag.kf1erow2 == null) ViewBag.kf1erow2 = new List<string>();
-            if (ViewBag.kf1erow3 == null) ViewBag.kf1erow3 = new List<string>();
-            if (ViewBag.kf1erow4 == null) ViewBag.kf1erow4 = new List<string>();
-            if (ViewBag.kf1frow1 == null) ViewBag.kf1frow1 = new List<string>();
-            if (ViewBag.kf1frow2 == null) ViewBag.kf1frow2 = new List<string>();
-            if (ViewBag.kf1frow3 == null) ViewBag.kf1frow3 = new List<string>();
-            if (ViewBag.kf1frow4 == null) ViewBag.kf1frow4 = new List<string>();
-            if (ViewBag.kf2arow1 == null) ViewBag.kf2arow1 = new List<string>();
-            if (ViewBag.kf2arow2 == null) ViewBag.kf2arow2 = new List<string>();
-            if (ViewBag.kf2arow3 == null) ViewBag.kf2arow3 = new List<string>();
-            if (ViewBag.kf2arow4 == null) ViewBag.kf2arow4 = new List<string>();
-            if (ViewBag.kf2brow1 == null) ViewBag.kf2brow1 = new List<string>();
-            if (ViewBag.kf2brow2 == null) ViewBag.kf2brow2 = new List<string>();
-            if (ViewBag.kf2brow3 == null) ViewBag.kf2brow3 = new List<string>();
-            if (ViewBag.kf2brow4 == null) ViewBag.kf2brow4 = new List<string>();
-            if (ViewBag.kf2crow1 == null) ViewBag.kf2crow1 = new List<string>();
-            if (ViewBag.kf2crow2 == null) ViewBag.kf2crow2 = new List<string>();
-            if (ViewBag.kf2crow3 == null) ViewBag.kf2crow3 = new List<string>();
-            if (ViewBag.kf2crow4 == null) ViewBag.kf2crow4 = new List<string>();
-            if (ViewBag.kf2drow1 == null) ViewBag.kf2drow1 = new List<string>();
-            if (ViewBag.kf2drow2 == null) ViewBag.kf2drow2 = new List<string>();
-            if (ViewBag.kf2drow3 == null) ViewBag.kf2drow3 = new List<string>();
-            if (ViewBag.kf2drow4 == null) ViewBag.kf2drow4 = new List<string>();
-            if (ViewBag.kf2erow1 == null) ViewBag.kf2erow1 = new List<string>();
-            if (ViewBag.kf2erow2 == null) ViewBag.kf2erow2 = new List<string>();
-            if (ViewBag.kf2erow3 == null) ViewBag.kf2erow3 = new List<string>();
-            if (ViewBag.kf2erow4 == null) ViewBag.kf2erow4 = new List<string>();
-                       
+            ViewBag.position = position; //?????-?           
             return View(KindnessCurrentPositionObj);
         }
 

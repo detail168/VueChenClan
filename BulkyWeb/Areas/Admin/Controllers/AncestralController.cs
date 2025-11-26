@@ -126,30 +126,6 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
                 ViewBag.level = "1";
                 ViewBag.position = "000";
             }
-            
-            // Initialize all layout ViewBag properties with empty lists to prevent JsonSerializer errors
-            dynamic ancestralBag = ViewBag;
-            ancestralBag.AncestralLayout_R = ancestralBag.AncestralLayout_R ?? new List<string>();
-            ancestralBag.AncestralLayout_L = ancestralBag.AncestralLayout_L ?? new List<string>();
-            ancestralBag.AncestralLayout = ancestralBag.AncestralLayout ?? new List<string>();
-            ancestralBag.ararow1 = ancestralBag.ararow1 ?? new List<string>();
-            ancestralBag.ararow2 = ancestralBag.ararow2 ?? new List<string>();
-            ancestralBag.ararow3 = ancestralBag.ararow3 ?? new List<string>();
-            ancestralBag.ararow4 = ancestralBag.ararow4 ?? new List<string>();
-            ancestralBag.ararow5 = ancestralBag.ararow5 ?? new List<string>();
-            ancestralBag.ararow6 = ancestralBag.ararow6 ?? new List<string>();
-            ancestralBag.ararow7 = ancestralBag.ararow7 ?? new List<string>();
-            ancestralBag.ararow8 = ancestralBag.ararow8 ?? new List<string>();
-            ancestralBag.ararow9 = ancestralBag.ararow9 ?? new List<string>();
-            ancestralBag.ararow10 = ancestralBag.ararow10 ?? new List<string>();
-            ancestralBag.arbrow1 = ancestralBag.arbrow1 ?? new List<string>();
-            ancestralBag.arbrow2 = ancestralBag.arbrow2 ?? new List<string>();
-            ancestralBag.arbrow3 = ancestralBag.arbrow3 ?? new List<string>();
-            ancestralBag.arbrow4 = ancestralBag.arbrow4 ?? new List<string>();
-            ancestralBag.arbrow5 = ancestralBag.arbrow5 ?? new List<string>();
-            ancestralBag.arbrow6 = ancestralBag.arbrow6 ?? new List<string>();
-            ancestralBag.arbrow7 = ancestralBag.arbrow7 ?? new List<string>();
-            ancestralBag.arbrow8 = ancestralBag.arbrow8 ?? new List<string>();
 
             return View(PositionObj);
         }
@@ -245,6 +221,34 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
             }
 
             return View(AncestralObj);
+        }
+
+        private void InitializeAncestralViewBag()
+        {
+            // Initialize all layout ViewBag properties to empty lists if not already set
+            // This allows the view to serialize them without null reference errors
+            dynamic bag = ViewBag;
+            bag.AncestralLayout_R = bag.AncestralLayout_R ?? new List<string>();
+            bag.AncestralLayout_L = bag.AncestralLayout_L ?? new List<string>();
+            bag.AncestralLayout = bag.AncestralLayout ?? new List<string>();
+            bag.ararow1 = bag.ararow1 ?? new List<string>();
+            bag.ararow2 = bag.ararow2 ?? new List<string>();
+            bag.ararow3 = bag.ararow3 ?? new List<string>();
+            bag.ararow4 = bag.ararow4 ?? new List<string>();
+            bag.ararow5 = bag.ararow5 ?? new List<string>();
+            bag.ararow6 = bag.ararow6 ?? new List<string>();
+            bag.ararow7 = bag.ararow7 ?? new List<string>();
+            bag.ararow8 = bag.ararow8 ?? new List<string>();
+            bag.ararow9 = bag.ararow9 ?? new List<string>();
+            bag.ararow10 = bag.ararow10 ?? new List<string>();
+            bag.arbrow1 = bag.arbrow1 ?? new List<string>();
+            bag.arbrow2 = bag.arbrow2 ?? new List<string>();
+            bag.arbrow3 = bag.arbrow3 ?? new List<string>();
+            bag.arbrow4 = bag.arbrow4 ?? new List<string>();
+            bag.arbrow5 = bag.arbrow5 ?? new List<string>();
+            bag.arbrow6 = bag.arbrow6 ?? new List<string>();
+            bag.arbrow7 = bag.arbrow7 ?? new List<string>();
+            bag.arbrow8 = bag.arbrow8 ?? new List<string>();
         }
     }
 }

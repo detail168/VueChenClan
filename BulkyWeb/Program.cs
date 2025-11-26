@@ -105,6 +105,12 @@ app.UseAuthorization();
 app.UseSession();
 SeedDatabase();
 app.MapRazorPages();
+// Redirect root to admin dashboard
+app.MapGet("/", context => 
+{
+    context.Response.Redirect("/admin/kindness");
+    return Task.CompletedTask;
+});
 app.MapControllerRoute(
     name: "default",
     pattern: "{area=Customer}/{controller=Home}/{action=Index}/{id?}"

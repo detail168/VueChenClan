@@ -120,3 +120,8 @@ void SeedDatabase()
     }
 }
 
+/// <summary>
+/// Public partial class to allow tests access to Program configuration.
+/// </summary>
+public partial class Program { }
+

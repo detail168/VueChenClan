@@ -1,0 +1,103 @@
+   D:\Git\Vue20251126\Bulky.Models\EventRegistration.cs(77,25): warning CS8618: 退出建構函式時，不可為 Null 的 屬性 'Product' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣告為可以為 Null。  
+    D:\Git\Vue20251126\Bulky.Models\SurveyResponse.cs(21,23): warning CS8618: 退出建構函式時，不可為 Null 的 屬性 'LoginTime' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣告為可以為 Null。   
+    D:\Git\Vue20251126\Bulky.Models\SurveyResponse.cs(24,23): warning CS8618: 退出建構函式時，不可為 Null 的 屬性 'UsageCount' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣告為可以為 Null。  
+    D:\Git\Vue20251126\Bulky.Models\SurveyResponse.cs(27,23): warning CS8618: 退出建構函式時，不可為 Null 的 屬性 'ErrorCount' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣告為可以為 Null。  
+    D:\Git\Vue20251126\Bulky.Models\ProductImage.cs(14,23): warning CS8618: 退出建構函式時，不可為 Null 的 屬性 'ImageUrl' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣告為可以為 Null。      
+    D:\Git\Vue20251126\Bulky.Models\ProductImage.cs(17,24): warning CS8618: 退出建構函式時，不可為 Null 的 屬性 'Product' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣告為可以為 Null。       
+  BulkyBook.DataAccess net8.0 成功但有 8 個警告 (1.0 秒) → Bulky.DataAccess\bin\Debug\net8.0\BulkyBook.DataAccess.dll
+    D:\Git\Vue20251126\Bulky.DataAccess\Repository\UnitOfWork.cs(56,29): warning CS0168: 已宣告變數 'e' ，但從未使用過它
+    D:\Git\Vue20251126\Bulky.DataAccess\DbInitializer\DbInitializer.cs(74,40): warning CS8600: 正在將 Null 常值或可能的 Null 值轉換為不可為 Null 的型別。
+    D:\Git\Vue20251126\Bulky.DataAccess\DbInitializer\DbInitializer.cs(75,45): warning CS8604: 'Task<IdentityResult> UserManager<IdentityUser>.AddToRoleAsync(IdentityUser user, string role)' 中的參數 'user'  可能有 Null 參考引數。
+    D:\Git\Vue20251126\Bulky.DataAccess\DbInitializer\DbInitializer.cs(105,24): warning CS8600: 正在將 Null 常值或可能的 Null 值轉換為不可為 Null 的型別。
+    D:\Git\Vue20251126\Bulky.DataAccess\DbInitializer\DbInitializer.cs(106,45): warning CS8604: 'Task<IdentityResult> UserManager<IdentityUser>.AddToRoleAsync(IdentityUser user, string role)' 中的參數 'user' 可能有 Null 參考引數。
+    D:\Git\Vue20251126\Bulky.DataAccess\Repository\OrderHeaderRepository.cs(40,17): warning CS8602: 可能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\Bulky.DataAccess\Repository\OrderHeaderRepository.cs(43,5): warning CS8602: 可能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\Bulky.DataAccess\Repository\Repository.cs(50,20): warning CS8603: 可能有 Null 參 考傳回。
+  BulkyBookWeb net8.0 成功但有 85 個警告 (5.8 秒) → BulkyWeb\bin\Debug\net8.0\BulkyBookWeb.dll
+    D:\Git\Vue20251126\BulkyWeb\Areas\Identity\Pages\Account\ExternalLogin.cshtml.cs(91,26): warning CS8632: 可為 Null 的參考型別註釋應只用於 '#nullable' 註釋內容中的程式碼。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Identity\Pages\Account\ExternalLogin.cshtml.cs(92,26): warning CS8632: 可為 Null 的參考型別註釋應只用於 '#nullable' 註釋內容中的程式碼。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Identity\Pages\Account\ExternalLogin.cshtml.cs(93,26): warning CS8632: 可為 Null 的參考型別註釋應只用於 '#nullable' 註釋內容中的程式碼。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Identity\Pages\Account\ExternalLogin.cshtml.cs(94,26): warning CS8632: 可為 Null 的參考型別註釋應只用於 '#nullable' 註釋內容中的程式碼。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Identity\Pages\Account\ExternalLogin.cshtml.cs(95,26): warning CS8632: 可為 Null 的參考型別註釋應只用於 '#nullable' 註釋內容中的程式碼。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Identity\Pages\Account\Register.cshtml.cs(114,26): warning CS8632: 可為 Null 的參考型別註釋應只用於 '#nullable' 註釋內容中的程式碼。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Identity\Pages\Account\Register.cshtml.cs(120,26): warning CS8632: 可為 Null 的參考型別註釋應只用於 '#nullable' 註釋內容中的程式碼。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Identity\Pages\Account\Register.cshtml.cs(121,26): warning CS8632: 可為 Null 的參考型別註釋應只用於 '#nullable' 註釋內容中的程式碼。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Identity\Pages\Account\Register.cshtml.cs(122,26): warning CS8632: 可為 Null 的參考型別註釋應只用於 '#nullable' 註釋內容中的程式碼。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Identity\Pages\Account\Register.cshtml.cs(123,26): warning CS8632: 可為 Null 的參考型別註釋應只用於 '#nullable' 註釋內容中的程式碼。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Identity\Pages\Account\Register.cshtml.cs(124,26): warning CS8632: 可為 Null 的參考型別註釋應只用於 '#nullable' 註釋內容中的程式碼。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Identity\Pages\Survey\SurveyResult.cshtml.cs(14,16): warning CS8618: 退出建構函式時，不可為 Null 的 屬性 'SuccessMessage' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣告為可以為 Null。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Models\AncestralApiDtos.cs(9,23): warning CS8618: 退出建構函式時，不可為 Null 的 屬性 'PositionId' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣告 為可以為 Null。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Models\AncestralApiDtos.cs(10,23): warning CS8618: 退出建構 函式時，不可為 Null 的 屬性 'Name' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣告為可 以為 Null。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Models\AncestralApiDtos.cs(11,23): warning CS8618: 退出建構 函式時，不可為 Null 的 屬性 'Side' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣告為可 以為 Null。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Models\AncestralApiDtos.cs(12,23): warning CS8618: 退出建構 函式時，不可為 Null 的 屬性 'Section' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣告為可以為 Null。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Models\AncestralApiDtos.cs(13,23): warning CS8618: 退出建構 函式時，不可為 Null 的 屬性 'Level' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣告為可以為 Null。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Models\AncestralApiDtos.cs(14,23): warning CS8618: 退出建構 函式時，不可為 Null 的 屬性 'Position' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣告 為可以為 Null。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Models\AncestralApiDtos.cs(15,23): warning CS8618: 退出建構 函式時，不可為 Null 的 屬性 'Applicant' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣告為可以為 Null。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Models\AncestralApiDtos.cs(16,23): warning CS8618: 退出建構 函式時，不可為 Null 的 屬性 'Relation' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣告 為可以為 Null。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Models\AncestralApiDtos.cs(17,23): warning CS8618: 退出建構 函式時，不可為 Null 的 屬性 'Mobile_Tel' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣 告為可以為 Null。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Models\AncestralApiDtos.cs(18,23): warning CS8618: 退出建構 函式時，不可為 Null 的 屬性 'Note' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣告為可 以為 Null。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Models\AncestralApiDtos.cs(30,23): warning CS8618: 退出建構 函式時，不可為 Null 的 屬性 'Name' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣告為可 以為 Null。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Models\AncestralApiDtos.cs(31,23): warning CS8618: 退出建構 函式時，不可為 Null 的 屬性 'Side' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣告為可 以為 Null。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Models\AncestralApiDtos.cs(32,23): warning CS8618: 退出建構 函式時，不可為 Null 的 屬性 'Section' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣告為可以為 Null。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Models\AncestralApiDtos.cs(33,23): warning CS8618: 退出建構 函式時，不可為 Null 的 屬性 'Level' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣告為可以為 Null。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Models\AncestralApiDtos.cs(34,23): warning CS8618: 退出建構 函式時，不可為 Null 的 屬性 'Position' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣告 為可以為 Null。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Models\AncestralApiDtos.cs(35,23): warning CS8618: 退出建構 函式時，不可為 Null 的 屬性 'PositionId' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣 告為可以為 Null。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Models\AncestralApiDtos.cs(36,23): warning CS8618: 退出建構 函式時，不可為 Null 的 屬性 'Applicant' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣告為可以為 Null。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Models\AncestralApiDtos.cs(37,23): warning CS8618: 退出建構 函式時，不可為 Null 的 屬性 'Relation' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣告 為可以為 Null。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Models\AncestralApiDtos.cs(38,23): warning CS8618: 退出建構 函式時，不可為 Null 的 屬性 'Mobile_Tel' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣 告為可以為 Null。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Models\AncestralApiDtos.cs(39,23): warning CS8618: 退出建構 函式時，不可為 Null 的 屬性 'Note' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣告為可 以為 Null。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Models\AncestralApiDtos.cs(24,23): warning CS8618: 退出建構 函式時，不可為 Null 的 屬性 'DisplayText' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣告為可以為 Null。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Controllers\CartController.cs(23,16): warning CS8618: 退 出建構函式時，不可為 Null 的 屬性 'ShoppingCartVM' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或 將 屬性 宣告為可以為 Null。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Controllers\CartController.cs(31,34): warning CS8600: 正 在將 Null 常值或可能的 Null 值轉換為不可為 Null 的型別。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Controllers\CartController.cs(32,26): warning CS8602: 可 能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Controllers\CartController.cs(32,26): warning CS8602: 可 能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Controllers\CartController.cs(42,17): warning CS8602: 可 能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Controllers\AncestralController.cs(63,45): warning CS8600:  正在將 Null 常值或可能的 Null 值轉換為不可為 Null 的型別。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Controllers\CartController.cs(72,34): warning CS8600: 正 在將 Null 常值或可能的 Null 值轉換為不可為 Null 的型別。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Controllers\CartController.cs(73,26): warning CS8602: 可 能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Controllers\CartController.cs(73,26): warning CS8602: 可 能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Controllers\CartController.cs(83,54): warning CS8601: 可 能有 Null 參考指派。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Controllers\CartController.cs(84,56): warning CS8601: 可 能有 Null 參考指派。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Controllers\CartController.cs(85,47): warning CS8601: 可 能有 Null 參考指派。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Controllers\CartController.cs(86,48): warning CS8601: 可 能有 Null 參考指派。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Controllers\CartController.cs(87,53): warning CS8601: 可 能有 Null 參考指派。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Controllers\EventRegistrationController.cs(86,35): warning CS8602: 可能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Controllers\EventRegistrationController.cs(87,29): warning CS8602: 可能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\ViewComponents\ShoppingCartViewComponent.cs(16,34): warning CS8600: 正在將 Null 常值或可能的 Null 值轉換為不可為 Null 的型別。
+    D:\Git\Vue20251126\BulkyWeb\ViewComponents\ShoppingCartViewComponent.cs(17,25): warning CS8602: 可能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Controllers\UserController.cs(137,43): warning CS8601: 可能 有 Null 參考指派。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Controllers\UserController.cs(145,31): warning CS8600: 正在 將 Null 常值或可能的 Null 值轉換為不可為 Null 的型別。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Controllers\UserController.cs(162,67): warning CS8604: 'Task<IdentityResult> UserManager<IdentityUser>.RemoveFromRoleAsync(IdentityUser user, string role)' 中的參數 'role' 可能有 Null 參考引數。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Controllers\UserApiController.cs(33,29): warning CS8601: 可 能有 Null 參考指派。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Controllers\HomeController.cs(125,34): warning CS8600: 正在將 Null 常值或可能的 Null 值轉換為不可為 Null 的型別。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Controllers\HomeController.cs(126,26): warning CS8602: 可能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Controllers\HomeController.cs(126,26): warning CS8602: 可能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Controllers\CartController.cs(101,25): warning CS8600: 正在將 Null 常值或可能的 Null 值轉換為不可為 Null 的型別。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Controllers\CartController.cs(102,17): warning CS8602: 可能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Controllers\CartController.cs(102,17): warning CS8602: 可能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Controllers\CartController.cs(170,44): warning CS8602: 可能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Controllers\CartController.cs(215,41): warning CS8602: 可能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Controllers\CartController.cs(215,41): warning CS8604: 'Task IEmailSender.SendEmailAsync(string email, string subject, string htmlMessage)' 中的參數 'email' 可能有 Null 參考引數。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Controllers\OrderController.cs(24,16): warning CS8618: 退出 建構函式時，不可為 Null 的 屬性 'OrderVM' 必須包含非 Null 值。請考慮新增 'required' 修飾元，或將 屬性 宣告為可以為 Null。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Controllers\OrderController.cs(167,36): warning CS8602: 可能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Controllers\OrderController.cs(195,73): warning CS8604: 'void IOrderHeaderRepository.UpdateStatus(int id, string orderStatus, string? paymentStatus = null)' 中的參 數 'orderStatus' 可能有 Null 參考引數。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Views\Home\Index.cshtml(11,40): warning CS8602: 可能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Views\Home\Index.cshtml(20,100): warning CS8602: 可能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Views\Cart\Index.cshtml(27,38): warning CS8602: 可能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Views\Cart\Index.cshtml(28,48): warning CS8602: 可能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Controllers\CartController.cs(294,24): warning CS8602: 可能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Controllers\CartController.cs(299,28): warning CS8602: 可能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Controllers\CartController.cs(303,28): warning CS8602: 可能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Views\Home\Details.cshtml(12,72): warning CS8602: 可能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Views\Home\Details.cshtml(57,75): warning CS8602: 可能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Views\Home\Details.cshtml(71,86): warning CS8602: 可能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Views\Cart\Summary.cshtml(91,30): warning CS8602: 可能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Controllers\KindnessController.cs(75,43): warning CS8619: 型別 'List<string?>' 的值中參考型別可 Null 性與目標型別 'List<string>' 不符合。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Controllers\KindnessController.cs(76,37): warning CS8619: 型別 'List<string?>' 的值中參考型別可 Null 性與目標型別 'List<string>' 不符合。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Views\Home\Index1.cshtml(153,44): warning CS8602: 可能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Views\Home\Index1.cshtml(163,104): warning CS8602: 可能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Controllers\OrderApiController.cs(36,38): warning CS8600: 正在將 Null 常值或可能的 Null 值轉換為不可為 Null 的型別。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Views\Order\Details.cshtml(197,80): warni    D:\Git\Vue20251126\BulkyWeb\Areas\Admin\Views\Order\Details.cshtml(197,80): warning CS8602: 可能 null 參考的取值 (dereference)。
+    D:\Git\Vue20251126\BulkyWeb\Areas\Customer\Views\EventRegistration\Upsert.cshtml(27,142): warning CS8602: 可能 null 參考的取值 (dereference)。
+
+在 10.4 秒內建置 成功但有 103 個警告   ==> Please help me resolve these warings, Tks!

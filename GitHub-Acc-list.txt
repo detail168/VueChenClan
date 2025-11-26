@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------------------------------------
 
-Please start backend and frontend at two separate terminals ( clear old ones before starting). Tks!
-
 Stop the running frontend and backend PowerShell process, rebuild them to remove lock warnings, and restart them. tks!
+
+Please start backend and frontend at two separate terminals ( clear old ones before starting). Tks!
 
 Please start frontend at a separate terminals ( clear old ones before starting). Tks!
 
@@ -22,7 +22,7 @@ Email Accounts: github copilot
 dailypower264@hotmail.com	used   34%  <-----
 -------------------  --------------
 2025 11 19  4code
-detail168@hotmail.com		used   0%   <-----
+detail168@hotmail.com		used   4%   <-----
 -------------------  --------------
 2025 11 19  4code
 fall13571@hotmail.com		used   18%  <-----

@@ -7,9 +7,37 @@
 
 
 ------------------
-2025 11 26 14:15
+2025 11 26 17:25
 ------------------
 
+In 'http://localhost:5173/login?redirect=/' page, I see
+
+Failed to load resource: the server responded with a status of 404 (Not Found)
+apiService.js:13  Failed to fetch Ancestral config: AxiosError
+getAncestralConfig @ apiService.js:13
+:7001/api/config/ancestral:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+apiService.js:23  Failed to fetch Kindness config: AxiosError
+getKindnessConfig @ apiService.js:23
+:7001/api/config/kindness:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+:7001/api/auth/login:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+:7001/api/auth/login:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+[新增] 使用 Copilot in Edge 來解釋主控台錯誤: 點擊
+         
+         以解釋錯誤。
+        深入了解
+        不再顯示
+
+
+------------------
+2025 11 26 17:24
+------------------
+
+In http://localhost:5064/admin/ancestral/DisplayPosition?AncestralPositionId=2  page,I see 'Wierd Code' not 'Chinese'.
+
+
+------------------
+2025 11 26 14:15
+------------------
 ChenClan UI Error msg:
 
 DataTables warning: table id=tblData - Ajax error. For more information about this error, please see https://datatables.net/tn/7

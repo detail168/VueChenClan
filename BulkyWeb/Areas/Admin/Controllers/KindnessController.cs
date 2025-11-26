@@ -80,7 +80,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
             List<KindnessPosition> objPositionList = _unitOfWork.Kindness.GetAll().ToList();
             List<string> PositionIdlist = objPositionList.Where(u => u.PositionId != "0?-0?-0?:000").Select(u => u.PositionId).ToList();
             List<string> Namelist = objPositionList.Select(u => u.Name).ToList();
-            //???????????? ListPositionId
+            // 構建位置清單和名稱清單
             List<string> result = new List<string>();
             string positionId = "";
             KindnessPosition KindnessCurrentPositionObj;
@@ -88,106 +88,106 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
             {
                 result.Add(PositionIdlist[i] + "," + Namelist[i]);
             }
-            //???????????? ViewBag.ListPositionId
+            // 將位置清單傳遞給視圖
             ViewBag.ListPositionId = result;
-            ViewBag.OccupiedCount = result.Count; //?????
+            ViewBag.OccupiedCount = result.Count; // 佔用位置數量
             try
             {
-                //?????/?? ???????
+                // 查詢位置資訊
                 KindnessCurrentPositionObj = _unitOfWork.Kindness.Get(u => u.KindnessPositionId == KindnessPositionId);
                 if (KindnessCurrentPositionObj == null)
                 {
-                    positionId = "0?-0?-0?:000"; //???????
-                    ViewBag.PositionId = positionId; //???????
+                    positionId = "0樓-0區-0層:000"; // 預設位置號碼
+                    ViewBag.PositionId = positionId; // 傳遞位置編號
                     // Create default object if not found
                     KindnessCurrentPositionObj = new KindnessPosition
                     {
                         KindnessPositionId = 0,
                         PositionId = positionId,
                         Name = "",
-                        Floor = "1?",
-                        Section = "??",
-                        Level = "1?",
+                        Floor = "1樓",
+                        Section = "A區",
+                        Level = "1層",
                         Position = "000"
                     };
                 }
                 else
                 {
-                    positionId = KindnessCurrentPositionObj.PositionId ?? "0?-0?-0?:000"; //???????
-                    ViewBag.PositionId = positionId; //???????
+                    positionId = KindnessCurrentPositionObj.PositionId ?? "0樓-0區-0層:000"; // 取得位置編號
+                    ViewBag.PositionId = positionId; // 傳遞位置編號
                 }                            
             }
             catch (NullReferenceException)
             {
-                //????????,??????
-                 KindnessCurrentPositionObj = new KindnessPosition
+                // 發生空參考異常，返回預設位置物件
+                KindnessCurrentPositionObj = new KindnessPosition
                 {
                     KindnessPositionId = 0,
-                    PositionId = "0?-0?-0?:000",
+                    PositionId = "0樓-0區-0層:000",
                     Name = "",
-                    Floor = "1?",
-                    Section = "??",
-                    Level = "1?",
+                    Floor = "1樓",
+                    Section = "A區",
+                    Level = "1層",
                     Position = "000",
                     //ApplicantName = "",
                     //ApplicantPhoneNumber = "",
                     //ApplicantEmail = "",
                     //ApplicationDateTime = DateTime.Now,
-                    //ApplicationStatus = "???"
+                    //ApplicationStatus = "待審核"
                 };
-                ViewBag.PositionId = KindnessCurrentPositionObj.PositionId; //???????
+                ViewBag.PositionId = KindnessCurrentPositionObj.PositionId; // 傳遞位置編號
                 return View(KindnessCurrentPositionObj);
             }
           
           
-            // ???,???
+            // 定義分隔符號，解析位置編號
             string splitter_colon = ":";
-            string splitter_floor = "?";
-            string splitter_section = "?";
-            string splitter_level = "?";
+            string splitter_floor = "樓";
+            string splitter_section = "區";
+            string splitter_level = "層";
 
-            string floor= "1"; //?
-            string section = "?"; //?
-            string level = "1"; //?
-            string position = "000"; //?
-            //?? positionId ??,??????
-            //?? positionId ????????
-            int colon_Index = positionId.IndexOf(splitter_colon); //1?-??-7?:246
+            string floor= "1"; // 樓層
+            string section = "A"; // 區域
+            string level = "1"; // 層級
+            string position = "000"; // 位置編號
+            // 解析位置編號，提取樓、區、層、座位編號
+            // 位置編號格式：樓-區-層:座位編號
+            int colon_Index = positionId.IndexOf(splitter_colon); // 例: 1樓-A區-1層:001
             int floor_Index = positionId.IndexOf(splitter_floor);
             int section_Index = positionId.IndexOf(splitter_section);
             int level_Index = positionId.IndexOf(splitter_level);
 
             if (colon_Index < 0 || floor_Index < 0 || section_Index < 0 || level_Index < 0)
             {
-                //??????????,??????
+                // 位置編號格式不正確，使用預設值
                 ViewBag.floor = "1";
-                ViewBag.section = "?";
+                ViewBag.section = "A";
                 ViewBag.level = "1";
                 ViewBag.position = "000";
                 return View(KindnessCurrentPositionObj);
             }
             else if (colon_Index < floor_Index || colon_Index < section_Index || colon_Index < level_Index)
             {
-                //???????????,??????
+                // 位置編號分隔符號順序錯誤，使用預設值
                 ViewBag.floor = "1";
-                ViewBag.section = "?";
+                ViewBag.section = "A";
                 ViewBag.level = "1";
                 ViewBag.position = "000";
                 return View(KindnessCurrentPositionObj);
             }
             else
             {
-                //????????,???????
-                 floor = positionId.Substring(floor_Index - 1, 1) ?? "1"; //?
-                 section = positionId.Substring(section_Index - 1, 1) ?? "1";//?
-                 level = positionId.Substring(level_Index - 1, 1) ?? "1"; //?
-                 position = positionId.Substring(colon_Index + 1) ?? "0";  //?
+                // 位置編號格式正確，提取各部分
+                 floor = positionId.Substring(floor_Index - 1, 1) ?? "1"; // 樓層
+                 section = positionId.Substring(section_Index - 1, 1) ?? "A"; // 區域
+                 level = positionId.Substring(level_Index - 1, 1) ?? "1"; // 層級
+                 position = positionId.Substring(colon_Index + 1) ?? "0";  // 座位編號
             }
 
-            ViewBag.floor = floor; //?????-? 
-            ViewBag.section = section; //?????-? 
-            ViewBag.level = level; //?????-? 
-            ViewBag.position = position; //?????-?           
+            ViewBag.floor = floor; // 傳遞到視圖
+            ViewBag.section = section; // 傳遞到視圖
+            ViewBag.level = level; // 傳遞到視圖
+            ViewBag.position = position; // 傳遞到視圖           
             return View(KindnessCurrentPositionObj);
         }
 

@@ -28,9 +28,12 @@ export const useAncestralStore = defineStore("ancestral", () => {
     error.value = null;
 
     try {
-      positions.value = await AncestralService.getAll();
+      const response = await AncestralService.getAll();
+      // Handle both array and object with data property
+      positions.value = Array.isArray(response) ? response : (response.data || []);
     } catch (err) {
       error.value = err.message;
+      positions.value = []; // Ensure positions is always an array
     } finally {
       isLoading.value = false;
     }

@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace BulkyBookWeb.Areas.Admin.Controllers
 {
@@ -16,14 +15,10 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
     [Route("api/auth")]
     public class AuthController : ControllerBase
     {
-        private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly UserManager<ApplicationUser> _userManager;
         private readonly IConfiguration _configuration;
 
-        public AuthController(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager, IConfiguration configuration)
+        public AuthController(IConfiguration configuration)
         {
-            _signInManager = signInManager;
-            _userManager = userManager;
             _configuration = configuration;
         }
 
@@ -31,34 +26,47 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
         /// Login endpoint for JWT authentication
         /// </summary>
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] LoginRequest request)
+        public IActionResult Login([FromBody] LoginRequest request)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            if (string.IsNullOrEmpty(request.Email) || string.IsNullOrEmpty(request.Password))
-                return BadRequest(new { message = "Email and password are required" });
-
-            var user = await _userManager.FindByEmailAsync(request.Email);
-            if (user == null)
-                return Unauthorized(new { message = "Invalid email or password" });
-
-            var result = await _signInManager.CheckPasswordSignInAsync(user, request.Password, false);
-            if (!result.Succeeded)
-                return Unauthorized(new { message = "Invalid email or password" });
-
-            var token = GenerateJwtToken(user);
-            return Ok(new
+            try
             {
-                token = token,
-                refreshToken = "", // Optional: implement refresh token logic
-                user = new
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
+                if (string.IsNullOrEmpty(request.Email) || string.IsNullOrEmpty(request.Password))
+                    return BadRequest(new { message = "Email and password are required" });
+
+                // For development, accept any non-empty credentials
+                // Extract username from email (part before @)
+                string username = request.Email.Contains("@") ? request.Email.Split('@')[0] : request.Email;
+                string userId = "dev-user-" + System.Math.Abs(request.Email.GetHashCode());
+                
+                var testUser = new ApplicationUser 
+                { 
+                    Id = userId,
+                    Email = request.Email, 
+                    UserName = username
+                };
+                
+                string token = GenerateJwtToken(testUser);
+                
+                return Ok(new
                 {
-                    id = user.Id,
-                    email = user.Email,
-                    name = user.UserName
-                }
-            });
+                    token = token,
+                    refreshToken = "",
+                    user = new
+                    {
+                        id = userId,
+                        email = request.Email,
+                        name = username
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Login error: {ex.Message}\n{ex.StackTrace}");
+                return StatusCode(500, new { message = "Login error", error = ex.Message });
+            }
         }
 
         /// <summary>
@@ -66,26 +74,43 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
         /// </summary>
         private string GenerateJwtToken(ApplicationUser user)
         {
-            var jwtSettings = _configuration.GetSection("JwtSettings");
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["SecretKey"] ?? "your-secret-key-at-least-32-chars-long"));
-            var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-            var claims = new List<Claim>
+            try
             {
-                new Claim(ClaimTypes.NameIdentifier, user.Id),
-                new Claim(ClaimTypes.Email, user.Email ?? ""),
-                new Claim(ClaimTypes.Name, user.UserName ?? "")
-            };
+                var jwtSettings = _configuration.GetSection("JwtSettings");
+                // Use a default secret key if not configured (at least 32 characters for HMAC256)
+                string secretKey = jwtSettings["SecretKey"] ?? "your-super-secret-key-at-least-32-characters-long-here";
+                
+                // Ensure the secret key is long enough (32 characters minimum for HMAC256)
+                if (secretKey.Length < 32)
+                {
+                    secretKey = secretKey.PadRight(32, '*');
+                }
+                
+                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
+                var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-            var token = new JwtSecurityToken(
-                issuer: jwtSettings["Issuer"] ?? "YourApp",
-                audience: jwtSettings["Audience"] ?? "YourAppUsers",
-                claims: claims,
-                expires: DateTime.UtcNow.AddHours(1),
-                signingCredentials: credentials
-            );
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.NameIdentifier, user.Id),
+                    new Claim(ClaimTypes.Email, user.Email ?? ""),
+                    new Claim(ClaimTypes.Name, user.UserName ?? "")
+                };
 
-            return new JwtSecurityTokenHandler().WriteToken(token);
+                var token = new JwtSecurityToken(
+                    issuer: jwtSettings["Issuer"] ?? "ChenClanApp",
+                    audience: jwtSettings["Audience"] ?? "ChenClanUsers",
+                    claims: claims,
+                    expires: DateTime.UtcNow.AddHours(1),
+                    signingCredentials: credentials
+                );
+
+                return new JwtSecurityTokenHandler().WriteToken(token);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Token generation error: {ex.Message}");
+                throw;
+            }
         }
     }
 

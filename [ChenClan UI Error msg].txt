@@ -5,6 +5,14 @@
 2025 11 27 00:01
 ==================
 
+
+------------------
+2025 11 27 00:32
+------------------
+
+Scan all the possibel View files and Controller files of the project for any remaining question-mark garbled comments or generated displayed  Html tags, and fix them if present.
+
+
 ------------------
 2025 11 27 00:20
 ------------------
@@ -15,7 +23,7 @@ Normalize Razor file Encodings to UTF-8
 2025 11 27 00:01
 ------------------
 
-Scan all the possibel View files of the project for any remaining question-mark garbled comments or generated displayed  Html tags, and fix them if present.
+Scan all the possibel View files and Controller files of the project for any remaining question-mark garbled comments or generated displayed  Html tags, and fix them if present.
 
 
 ==================

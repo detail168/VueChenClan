@@ -24,14 +24,14 @@ using WebApplication = Microsoft.Graph.Models.WebApplication;
 
 namespace BulkyBookWeb.Areas.Admin.Controllers
 {
-    //???-???? 2025 05 15 12:01  KindnessPosition.cs
+    // 懷恩塔位置控制器 2025 05 15 12:01  KindnessPosition.cs
     [Area("Admin")]
  //   [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Customer)]
     public class KindnessController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
-        private static int? SelectedPoistionId { set; get; } //??????? KindnessPositionID      
-        private static string? SelectedName { set; get; } //???????Name
+        private static int? SelectedPoistionId { set; get; } // 已選擇的懷恩塔位置ID      
+        private static string? SelectedName { set; get; } // 已選擇的塔位名稱
 
         private static DateTime? SystemStartTime { get; set; }
         public KindnessController(IUnitOfWork unitOfWork)
@@ -59,8 +59,8 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// (??)??:2025 05 16 16:39
-        ///   ????:2025 05 24 13:10
+        /// 懷恩塔應用頁面:2025 05 16 16:39
+        ///   最後修改時間:2025 05 24 13:10
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -71,7 +71,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// ?? 2025 05 16 16:39
+        /// 懷恩塔位置顯示 2025 05 16 16:39
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -83,7 +83,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 
         /// <summary>
         /// 2025 06 19:02
-        /// ???????: ??,??,??,???...
+        /// 讀取懷恩塔設定: 樓層, 區段, 行列配置等...
         /// </summary>
         /// <param name="KindnessPositionId"></param>
         private void ReadKindnessSetting(int? KindnessPositionId)
@@ -163,21 +163,21 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
             ViewBag.kf3fr = builder.Configuration.GetSection("Kindness:kf3fr:row").Get<int>();
             ViewBag.kf3fc = builder.Configuration.GetSection("Kindness:kf3fc:col").Get<int>();
 
-            //???:??�????:
-            //1 ?  ?? 4???(????: row1,row2,....row4)
-            //1 ?  1?   kf1a.row1
+            // 懷恩塔:一樓區段配置:
+            // 1樓A區 = 4列區域(區域名稱: row1,row2,....row4)
+            // 1樓 A區1列 kf1a.row1
             ViewBag.kf1arow1 = builder.Configuration.GetSection("kf1a:row1").Get<string>();
-            //1 ?  2?   kf1a.row2
+            // 1樓 A區2列 kf1a.row2
             ViewBag.kf1arow2 = builder.Configuration.GetSection("kf1a:row2").Get<string>();
-            //1 ?  3?   kf1a.row3
+            // 1樓 A區3列 kf1a.row3
             ViewBag.kf1arow3 = builder.Configuration.GetSection("kf1a:row3").Get<string>();
-            //1 ?  4?   kf1a.row4
+            // 1樓 A區4列 kf1a.row4
             ViewBag.kf1arow4 = builder.Configuration.GetSection("kf1a:row4").Get<string>();
 
-            //1 ? ?? 4???(????: row1,row2,....row4)
-            //1 ?  1?   kf1b.row1
+            // 1樓B區 = 4列區域(區域名稱: row1,row2,....row4)
+            // 1樓 B區1列 kf1b.row1
             ViewBag.kf1brow1 = builder.Configuration.GetSection("kf1b:row1").Get<string>();
-            //1 ?  2?   kf1b.row2
+            // 1樓 B區2列 kf1b.row2
             ViewBag.kf1brow2 = builder.Configuration.GetSection("kf1b:row2").Get<string>();
             //1 ?  3?   kf1b.row3
             ViewBag.kf1brow3 = builder.Configuration.GetSection("kf1b:row3").Get<string>();
@@ -738,12 +738,12 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
         //Inside the controller action, use your Entity Framework context or other data access code to save the received data.
         //        ---
         //Summary:
-        //�	Use JavaScript to send localStorage data to the server via AJAX.
-        //�	Create a controller action to receive and save the data.
-        //�	Save the data to your database using your data access layer.
+        //�	Use JavaScript to send localStorage data to the server via AJAX.
+        //�	Create a controller action to receive and save the data.
+        //�	Save the data to your database using your data access layer.
         //Gotcha:
-        //�	Make sure your endpoint URL matches your route.
-        //�	Ensure the data format sent from JS matches what your controller expects.
+        //�	Make sure your endpoint URL matches your route.
+        //�	Ensure the data format sent from JS matches what your controller expects.
         //Let me know if you need a full working example for your specific data structure!
         //* 2025 08 27 01:12 ??????  
         [HttpGet]

@@ -605,7 +605,7 @@
                // 設定 CSS class 為 row
             sideDiv.className = 'row';
             for (let i =0; i <= positionary_asideary.length-1 ; i++) {
-                    //??
+                    // 迴圈遍歷各個區段
                     let  section = positionary_asideary[i];
                     // 建立區段 span 並設定顯示文字與樣式
                     let SectionSpan = document.createElement('span');
@@ -648,7 +648,7 @@
                     // Get each position ID
                       // 取得單一位置代碼
                       let position=row[j]; // 單一位置代碼
-                    let positionId = desc+rowId+"層:" + position;  //eg:??-??-7:34  format:側-區-層:?
+                    let positionId = desc+rowId+"層:" + position;  //eg:左-A-7:34  format:側-區-層:位置號
                     // Create a span for the position
                       // 建立位置顯示用的 span
                     let positionSpan = document.createElement('span');
@@ -757,7 +757,7 @@
 
           // 正規化: 處理側/區的標記
         function filterPositionsBySideAndSection(side, section) {
-        // Normalize for "??"
+        // 標準化: 處理全部側或全部區的情況
         const allSides = (side === "0");
         const allSections = (section === "0");
 
@@ -885,9 +885,9 @@
         const spans = container.querySelectorAll('span');
         spans.forEach(span => {
             if (span.innerText.trim() === "上") {   /// 祖先標記
-                // Found!
+                // 找到了！
                 span.classList.add('position-ancestor-layout');
-                //span.classList.add('blink_firstMan'); // ?? 2025 07 31 00:01
+                //span.classList.add('blink_firstMan'); // 標記首人 (舊功能，已停用) 2025 07 31 00:01
             }
         });
     }

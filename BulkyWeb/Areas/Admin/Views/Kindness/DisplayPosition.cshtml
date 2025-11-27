@@ -771,12 +771,12 @@
                 if(PositionId.length > 0) {
                     positions.forEach(position => {
                         //alert('position.innerText: '+position.innerText);
-                        var  bool_result= (PositionId.includes(position.innerText));//?? ===??
+                        var  bool_result= (PositionId.includes(position.innerText));// 檢查位置ID是否包含
                         //alert('bool_result: ' +bool_result);
                         if (bool_result) {
                             //alert('bool_result: ' +bool_result);
                             position.classList.add('Kindnesssectioncurrent'); // 標示為目前區段 'Kindnesssectioncurrent'
-                            position.classList.add('blink'); // ?? 2025 07 30 23:42
+                            position.classList.add('blink'); // 閃爍效果標記 2025 07 30 23:42
                             }
                     });
                     }

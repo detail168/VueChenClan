@@ -34,8 +34,8 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// (??)??:2025 05 16 16:39
-        ///   ????:2025 05 24 13:10
+        /// 懷恩塔應用頁面:2025 05 16 16:39
+        ///   最後修改時間:2025 05 24 13:10
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -46,7 +46,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// ?? 2025 05 16 16:39
+        /// 懷恩塔位置顯示 2025 05 16 16:39
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -58,7 +58,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 
         /// <summary>
         /// 2025 06 19:02
-        /// ???????: ??,??,??,???...
+        /// 讀取懷恩塔設定: 樓層, 區段, 行列配置等...
         /// </summary>
         /// <param name="KindnessPositionId"></param>
         private void ReadKindnessSetting(int? KindnessPositionId)
@@ -232,7 +232,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
                 }
 
                 string strResult = _unitOfWork.Save();
-                TempData["success"] = "??/?? ??" + strResult;
+                TempData["success"] = "儲存成功: 位置已更新" + strResult;
                 return RedirectToAction("Index");
             }
             else
@@ -245,7 +245,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
         //        2. Create a Server Endpoint to Receive the Data
         //In your controller(e.g., OrderController.cs), add an action to receive and save the data:
         [HttpPost]
-        public IActionResult SavePositions([FromBody] string displaytext)  //eg: displaytext like "1?-??-7?:246"
+        public IActionResult SavePositions([FromBody] string displaytext)  //eg: displaytext like "1樓-A區-7層:246"
         {
             // This MVC controller no longer performs direct position updates.
             // Use the API endpoint `POST /api/admin/kindness/saveposition` instead.
